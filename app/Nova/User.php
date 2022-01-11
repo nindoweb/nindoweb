@@ -47,7 +47,8 @@ class User extends Resource
 
             Avatar::make(__('Avatar'), 'avatar')
                 ->disk('public')
-                ->squared(),
+                ->squared()
+                ->creationRules('required'),
 
 
             Text::make('Name')
