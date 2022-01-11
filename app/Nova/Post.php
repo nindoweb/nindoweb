@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
 {
@@ -35,7 +34,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title'
+        'title'
     ];
 
     /**
@@ -47,7 +46,11 @@ class Post extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
+            ID::make(__('ID'), 'id')->sortable()->hideFromIndex(),
+
+            Image::make(__('Image'), 'image')
+                ->disk('public')
+                ->creationRules('required', 'max:5000', 'min:50'),
 
             BelongsTo::make(__('Category'), 'category'),
 
