@@ -5,6 +5,8 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
@@ -59,9 +61,19 @@ class Post extends Resource
                 ->hideWhenCreating()
                 ->hideWhenUpdating(),
 
+            Text::make(__('Code'), 'code')
+                ->default(uniqid())
+                ->hideWhenUpdating()
+                ->hideFromIndex(),
+
+            BelongsTo::make(__('User'), 'user'),
+
             BelongsToMany::make(__("Tags"), 'tags'),
 
-            Trix::make(__('Content'), 'content')
+            Trix::make(__('Content'), 'content'),
+
+            DateTime::make(__('Published At'), 'published_at')
+                ->creationRules('required', 'after_or_equal:now')
         ];
     }
 

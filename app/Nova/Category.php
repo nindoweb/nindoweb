@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
@@ -55,7 +56,9 @@ class Category extends Resource
             Text::make(__('Code'), 'code')
             ->default(uniqid())
             ->hideWhenUpdating()
-            ->hideFromIndex()
+            ->hideFromIndex(),
+
+            Trix::make(__('Content'), 'content')
 
         ];
     }
