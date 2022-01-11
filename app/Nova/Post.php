@@ -53,7 +53,7 @@ class Post extends Resource
 
             Text::make(__("Title"), 'title')
                 ->creationRules(\App\Models\Post::$rules['title'])
-                ->updateRules('required', 'unique:posts,title,{{ resource_id }}'),
+                ->updateRules('required', 'unique:posts,title,{{resourceId}}'),
 
             Slug::make(__('Slug'), 'slug')
                 ->from('title')
