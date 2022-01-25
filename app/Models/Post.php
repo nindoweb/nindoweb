@@ -6,15 +6,17 @@ use App\Presenters\PostPresenter;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int user_id
  */
 class Post extends Model
 {
-    use HasFactory;
-    use Sluggable;
-    use PostPresenter;
+    use HasFactory,
+        Sluggable,
+        PostPresenter,
+        SoftDeletes;
 
     public function sluggable(): array
     {

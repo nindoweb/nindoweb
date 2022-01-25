@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('code')->unique();
             $table->longText('content');
             $table->timestamp('published_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
