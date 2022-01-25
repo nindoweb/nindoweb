@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_staff')->default(true);
             $table->boolean('is_active')->default(true);
             $table->boolean('is_superuser')->default(false);
+            $table->string('Linkedin')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

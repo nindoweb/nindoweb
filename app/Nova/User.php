@@ -65,6 +65,10 @@ class User extends Resource
             BelongsTo::make(__('Team'), 'team')
                 ->nullable(true),
 
+            Text::make(__('Linkedin'), 'linkedin')
+                ->hideFromIndex()
+                ->nullable(true),
+
             Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
