@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\CategoryCount;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
@@ -71,7 +72,9 @@ class Category extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            new CategoryCount()
+        ];
     }
 
     /**

@@ -2,28 +2,28 @@
 
 namespace App\Nova;
 
-use App\Nova\Metrics\TagCount;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Tag extends Resource
+class RequestForm extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Tag::class;
+    public static $model = \App\Models\RequestForm::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'company_name';
 
     /**
      * The columns that should be searched.
@@ -31,7 +31,7 @@ class Tag extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'company_name', 'email', 'content'
     ];
 
     /**
@@ -45,11 +45,20 @@ class Tag extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Text::make(__('Name'), 'name')
-                ->creationRules('required', 'unique:tags,name')
-                ->updateRules('required', 'unique:tags,name,{{resourceId}}'),
+            Text::make(__('Company name'), 'company_name')
+                ->rules('required', 'max:255'),
 
-            BelongsToMany::make(__('Posts'), 'posts')
+            Text::make(__('Email'), 'email')
+                ->rules('required', 'email', 'max:255'),
+
+            Text::make(__('Content'), 'content')
+                ->rules('required', 'min:10'),
+
+            Boolean::make(__('Was seen?'), 'was_seen'),
+
+            HasMany::make(__('Request form notes'), 'requestFormNotes')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
         ];
     }
 
@@ -61,9 +70,7 @@ class Tag extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            new TagCount()
-        ];
+        return [];
     }
 
     /**

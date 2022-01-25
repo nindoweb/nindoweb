@@ -11,12 +11,12 @@ class UserPolicy
 
     public function viewAny(User $user): bool
     {
-        return $user->is_superuser;
+        return $user->is_staff;
     }
 
     public function view(User $user, User $model): bool
     {
-        return $user->is_superuser;
+        return $user->id == $model->id || $user->is_superuser;
     }
 
     public function create(User $user): bool
@@ -26,7 +26,7 @@ class UserPolicy
 
     public function update(User $user, User $model): bool
     {
-        return $user->is_superuser;
+        return $user->is_superuser || $user->id == $model->id;
     }
 
     public function delete(User $user, User $model): bool

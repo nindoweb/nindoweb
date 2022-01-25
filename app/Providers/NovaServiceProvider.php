@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use App\Nova\Metrics\CategoryCount;
 use App\Nova\Metrics\PostCount;
+use App\Nova\Metrics\RequestFormCount;
+use App\Nova\Metrics\RequestFormNoteCount;
 use App\Nova\Metrics\TagCount;
+use App\Nova\Metrics\TechnologyCount;
 use App\Nova\Post;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
@@ -61,8 +64,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new PostCount(),
+            new RequestFormCount(),
+            new RequestFormNoteCount(),
             new CategoryCount(),
-            new TagCount()
+            new TagCount(),
+            new TechnologyCount()
         ];
     }
 

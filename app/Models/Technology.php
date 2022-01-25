@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Presenters\CategoryPresenter;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,10 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property mixed user_id
  */
-class Category extends Model
+class Technology extends Model
 {
     use HasFactory,
-        CategoryPresenter,
         Sluggable,
         SoftDeletes;
 
@@ -22,9 +20,13 @@ class Category extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'title'
             ]
         ];
     }
 
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

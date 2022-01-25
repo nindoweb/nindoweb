@@ -2,28 +2,28 @@
 
 namespace App\Nova;
 
-use App\Nova\Metrics\TagCount;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Tag extends Resource
+class Technology extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Tag::class;
+    public static $model = \App\Models\Technology::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -31,7 +31,7 @@ class Tag extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'title', 'content'
     ];
 
     /**
@@ -45,11 +45,23 @@ class Tag extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Text::make(__('Name'), 'name')
-                ->creationRules('required', 'unique:tags,name')
-                ->updateRules('required', 'unique:tags,name,{{resourceId}}'),
+            Image::make(__('Image'), 'image')
+                ->creationRules('required', 'max:512')
+                ->updateRules('max:512')
+                ->squared(),
 
-            BelongsToMany::make(__('Posts'), 'posts')
+            Text::make(__('Title'), 'title')
+                ->creationRules('required', 'min:2', 'max:255', 'unique:technologies,title')
+                ->updateRules('required', 'min:2', 'max:255', 'unique:technologies,title,{{resourceId}}'),
+
+            Text::make(__('Slug'), 'slug')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->hideFromIndex(),
+
+            Trix::make(__('Content'), 'content')
+
+
         ];
     }
 
@@ -61,9 +73,7 @@ class Tag extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            new TagCount()
-        ];
+        return [];
     }
 
     /**

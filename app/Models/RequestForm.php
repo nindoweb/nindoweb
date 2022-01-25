@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * @property mixed user_id
- */
-class Tag extends Model
+class RequestForm extends Model
 {
     use HasFactory,
         SoftDeletes;
 
-    public function posts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function requestFormNotes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsToMany(Post::class);
+        return $this->hasMany(RequestFormNote::class);
     }
 }

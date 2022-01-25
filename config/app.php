@@ -163,8 +163,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * First Party Package Service Providers...
          */
+        \App\Providers\ObserverServiceProvider::class,
 
         /*
          * Application Service Providers...

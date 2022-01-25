@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateRequestFormNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,22 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('request_form_notes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable();
-            $table->string('name')->unique();
-            $table->string('slug');
-            $table->string('code')->unique();
-            $table->longText('content')->nullable();
+            $table->foreignId('request_form_id');
+            $table->text('content');
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('set null');
+
+            $table->foreign('request_form_id')->references('id')->on('request_forms')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -34,6 +36,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('request_form_notes');
     }
 }
