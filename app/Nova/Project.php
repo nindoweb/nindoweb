@@ -9,14 +9,14 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Service extends Resource
+class Project extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Service::class;
+    public static $model = \App\Models\Project::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,13 +45,15 @@ class Service extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Image::make(__('Image'), 'image')
+            Image::make(__('Logo'), 'logo')
                 ->creationRules('required', 'max:200')
                 ->updateRules('nullable'),
 
             Text::make(__('Name'), 'name')
                 ->creationRules('required', 'min:2', 'unique:services,title')
                 ->updateRules('required', 'min:2', 'unique:services,title,{{resourceId}}'),
+
+            Text::make(__('Url'), 'url'),
 
             Trix::make(__('Content'), 'content')
                 ->rules('nullable')
