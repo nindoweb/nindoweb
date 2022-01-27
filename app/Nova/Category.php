@@ -55,9 +55,10 @@ class Category extends Resource
             Slug::make(__('Slug'), 'slug')->exceptOnForms(),
 
             Text::make(__('Code'), 'code')
-            ->default(uniqid())
-            ->hideWhenUpdating()
-            ->hideFromIndex(),
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->hideFromIndex()
+                ->exceptOnForms(),
 
             Trix::make(__('Content'), 'content')
 

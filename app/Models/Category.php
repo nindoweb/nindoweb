@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property mixed user_id
+ * @property mixed|string code
  */
 class Category extends Model
 {

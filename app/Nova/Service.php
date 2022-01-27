@@ -46,12 +46,12 @@ class Service extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Image::make(__('Image'), 'image')
-                ->creationRules('required', 'max:200')
+                ->creationRules('required', 'max:512')
                 ->updateRules('nullable'),
 
             Text::make(__('Name'), 'name')
-                ->creationRules('required', 'min:2', 'unique:services,title')
-                ->updateRules('required', 'min:2', 'unique:services,title,{{resourceId}}'),
+                ->creationRules('required', 'min:2', 'unique:services,name')
+                ->updateRules('required', 'min:2', 'unique:services,name,{{resourceId}}'),
 
             Trix::make(__('Content'), 'content')
                 ->rules('nullable')

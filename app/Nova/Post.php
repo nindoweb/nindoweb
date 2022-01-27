@@ -66,9 +66,10 @@ class Post extends Resource
                 ->hideWhenUpdating(),
 
             Text::make(__('Code'), 'code')
-                ->default(uniqid())
+                ->hideWhenCreating()
                 ->hideWhenUpdating()
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->exceptOnForms(),
 
             BelongsTo::make(__('User'), 'user')
                 ->hideWhenCreating()

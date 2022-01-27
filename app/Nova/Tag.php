@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Nova\Metrics\TagCount;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -49,7 +50,13 @@ class Tag extends Resource
                 ->creationRules('required', 'unique:tags,name')
                 ->updateRules('required', 'unique:tags,name,{{resourceId}}'),
 
-            BelongsToMany::make(__('Posts'), 'posts')
+            BelongsToMany::make(__('Posts'), 'posts'),
+
+            BelongsTo::make(__('User'), 'user')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->exceptOnForms(),
+
         ];
     }
 

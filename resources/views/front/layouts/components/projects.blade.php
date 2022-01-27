@@ -7,13 +7,13 @@
                         <h3>{{ $project->name }}</h3>
                         <p>{{ $project->url }}</p>
                     </div>
-                    <div class="d-flex justify-content-center" style="width: 30%;">
+                    <div class="d-flex justify-content-center" >
                         <img style="width: 30%;" src="/storage/{{ $project->logo }}" />
                     </div>
                 </div>
                 <div class="d-flex flex-row justify-content-between px-2" style="font-size: 14px;">
                     <p>
-                        {{ $project->content }}
+                        {!! $project->content !!}
                     </p>
                 </div>
             </div>

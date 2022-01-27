@@ -50,8 +50,8 @@ class Project extends Resource
                 ->updateRules('nullable'),
 
             Text::make(__('Name'), 'name')
-                ->creationRules('required', 'min:2', 'unique:services,title')
-                ->updateRules('required', 'min:2', 'unique:services,title,{{resourceId}}'),
+                ->creationRules('required', 'min:2', 'unique:services,name')
+                ->updateRules('required', 'min:2', 'unique:services,name,{{resourceId}}'),
 
             Text::make(__('Url'), 'url'),
 
