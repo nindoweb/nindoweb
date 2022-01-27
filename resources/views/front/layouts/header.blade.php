@@ -6,7 +6,11 @@
                 <span class="mx-md-3 mx-1 navItem active" onclick="changeUrl($(this).text())">Home</span>
                 <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">Portfolio</span>
                 <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">Team</span>
-                <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">Blog</span>
+                <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">
+                    <a class="navItem" href="{{ route('posts.list') }}">
+                        {{ __('Blog') }}
+                    </a>
+                </span>
             </div>
             <div style="position: relative;overflow: hidden;">
                 <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="Nindoweb logo" title="Nindoweb logo">

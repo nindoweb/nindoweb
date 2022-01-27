@@ -19,6 +19,10 @@ class Post extends Model
         PostPresenter,
         SoftDeletes;
 
+    public $with = ['user'];
+
+    public $perPage = 6;
+
     public function sluggable(): array
     {
         return [

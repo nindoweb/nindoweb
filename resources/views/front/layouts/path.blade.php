@@ -1,7 +1,7 @@
 <section id="section1" class="d-flex flex-column mt-5">
     <h1>
         {{__('Nindo')}}
-        <span style="color: red;margin-left: -14px;">{{$redText ?? ''}} </span>{{$regularText ?? ''}}
+        <span style="color: red;margin-left: -14px;">{{$redText ?? ''}}</span>{{$regularText ?? ''}}
     </h1>
     <h3>
         {{ $description ?? '' }}
