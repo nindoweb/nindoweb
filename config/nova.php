@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\TheUserIsAnEmployee;
 use Laravel\Nova\Actions\ActionResource;
 use Laravel\Nova\Http\Middleware\Authenticate;
 use Laravel\Nova\Http\Middleware\Authorize;
@@ -58,7 +59,7 @@ return [
     |
     */
 
-    'path' => '/nova',
+    'path' => '/ninja',
 
     /*
     |--------------------------------------------------------------------------
@@ -103,6 +104,7 @@ return [
         DispatchServingNovaEvent::class,
         BootTools::class,
         Authorize::class,
+        TheUserIsAnEmployee::class
     ],
 
     /*
