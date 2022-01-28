@@ -23,7 +23,7 @@ class RequestForm extends Resource
      *
      * @var string
      */
-    public static $title = 'company_name';
+    public static $title = 'company';
 
     /**
      * The columns that should be searched.
@@ -31,7 +31,7 @@ class RequestForm extends Resource
      * @var array
      */
     public static $search = [
-        'company_name', 'email', 'content'
+        'company', 'email', 'description'
     ];
 
     /**
@@ -51,7 +51,7 @@ class RequestForm extends Resource
             Text::make(__('Email'), 'email')
                 ->rules('required', 'email', 'max:255'),
 
-            Text::make(__('Content'), 'content')
+            Text::make(__('Description'), 'description')
                 ->rules('required', 'min:10'),
 
             Boolean::make(__('Was seen?'), 'was_seen'),

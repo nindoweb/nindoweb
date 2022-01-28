@@ -16,8 +16,8 @@ class CreateRequestFormsTable extends Migration
         Schema::create('request_forms', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-            $table->string('company_name');
-            $table->text('content');
+            $table->string('company');
+            $table->text('description');
             $table->boolean('was_seen')->default(false);
             $table->softDeletes();
             $table->timestamps();

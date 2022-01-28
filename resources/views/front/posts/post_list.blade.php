@@ -13,37 +13,35 @@
     <section id="section2Blog">
         <div class="d-flex flex-md-row flex-wrap justify-content-md-between justify-content-center">
             @foreach($posts as $post)
-                <div class="blog1 d-flex flex-column">
-                    <div class="item1">
-                        <img class="post-card" src="/storage/{{ $post->image }}">
+                <div class="blog1 d-flex flex-column ">
+                <div class="item1">
+                    <img class="post-card-img" src="/storage/{{ $post->image }}" alt="{{ $post->title }}" />
+                </div>
+                <div class="item2 d-flex flex-column justify-content-end">
+                    <div>
+                        <span style="font-size: 30px;font-weight: bold;">
+                            {{ $post->title }}
+                        </span>
                     </div>
-                    <div class="item2 d-flex flex-column justify-content-end">
-                        <div>
-                            <span style="font-size: 30px;font-weight: bold;">
-                                {{ $post->title }}
-                            </span>
+                    <div>
+                        <div class="heightPost">
+                            {!! \Illuminate\Support\Str::words($post->content, 200) !!}
                         </div>
-                        <div class="post-short-content">
-                            {!! \Illuminate\Support\Str::words($post->content, 150) !!}
+                    </div>
+                    <div>
+                        <a class="read-more-btn" href="{{ route('posts.detail', [$post->code, $post->slug]) }}">
+                            {{ __('Read more') }}
+                        </a>
+                    </div>
+                    <div class="lastChild d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img style="width: 20px;height: 20px;" src="{{ asset('front/images/logo.svg') }}" width="10" height="10" alt="">
+                            <span style="font-size: 14px;font-weight: bold;">{{ $post->user->name }}</span>
                         </div>
-                        <div>
-                            <a class="read-more" href="{{ route('posts.detail', [$post->code, $post->slug]) }}">
-                                {{ __('Read more') }}
-                            </a>
-                        </div>
-                        <div class="lastChild d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <img class="avatar-minimal" src="/storage/{{ $post->user->avatar }}" width="10" height="10" alt="">
-                                <span style="font-size: 14px;font-weight: bold;">{{ $post->user->name }}</span>
-                            </div>
-                            <div>
-                                <span style="font-size: 14px;font-weight: bold;">
-                                    {{ $post->published_at }}
-                                </span>
-                            </div>
-                        </div>
+                        <div><span style="font-size: 14px;font-weight: bold;">{{ $post->published_at }}</span></div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </section>

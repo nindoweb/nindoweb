@@ -18,7 +18,7 @@ class CreateTechnologiesTable extends Migration
             $table->foreignId('user_id')->nullable();
             $table->string('title');
             $table->string('slug');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->longText('content')->nullable();
             $table->softDeletes();
             $table->timestamps();

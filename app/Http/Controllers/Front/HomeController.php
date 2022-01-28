@@ -12,8 +12,7 @@ class HomeController extends Controller
 {
     public function __construct(private TechnologyService $technologyService,
                                 private PostService $postService,
-                                private ServiceService $serviceService,
-                                private ProjectService $projectService)
+                                private ServiceService $serviceService)
     {
     }
 
@@ -22,12 +21,10 @@ class HomeController extends Controller
         $posts = $this->postService->getWithPaginate(perPage: 3);
         $technologies = $this->technologyService->get();
         $services = $this->serviceService->getWithPaginate(perPage: 3);
-        $projects = $this->projectService->getWithPaginate(perPage: 3);
 
         return view('front.home', compact(
             'posts',
             'technologies',
-            'services',
-            'projects'));
+            'services'));
     }
 }

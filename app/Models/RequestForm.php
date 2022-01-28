@@ -11,6 +11,8 @@ class RequestForm extends Model
     use HasFactory,
         SoftDeletes;
 
+    protected $fillable = ['email', 'company', 'description'];
+
     public function requestFormNotes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(RequestFormNote::class);

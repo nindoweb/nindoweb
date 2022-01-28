@@ -157,6 +157,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'company_name' => 'Company Name'
+    ],
 
 ];
