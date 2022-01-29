@@ -1,8 +1,11 @@
 <dropdown-trigger class="h-9 flex items-center">
     @isset($user->email)
         <img
-{{--            src="https://secure.gravatar.com/avatar/{{ md5(\Illuminate\Support\Str::lower($user->email)) }}?size=512"--}}
-        src="/storage/{{ $user->avatar }}"
+        @if(is_null($user->avatar))
+            src="https://secure.gravatar.com/avatar/{{ md5(\Illuminate\Support\Str::lower($user->email)) }}?size=512"
+        @else
+            src="/storage/{{ $user->avatar }}"
+        @endif
             class="rounded-full w-8 h-8 mr-3"
         />
     @endisset

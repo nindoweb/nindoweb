@@ -20,14 +20,12 @@ class LaunchController extends Controller
     public function store(LaunchRequest $launchRequest): \Illuminate\Http\RedirectResponse
     {
         $key = 'launch:request:ip:'.$launchRequest->ip();
-        $stopKey = 'launch:request:stop:ip'. $launchRequest->ip();
 
         cache()->has($key) ?
             cache()->increment($key):
-            cache()->set($key, 1, now()->addMinutes());
+            cache()->set($key, 1, now()->addDays());
 
-        if(cache()->has($stopKey) || cache()->get($key) > 3) {
-            cache()->set($stopKey, true, now()->addDays(1));
+        if(cache()->get($key) > 3) {
             return redirect()
                 ->back()
                 ->with(['error' => __('You have applied for three projects. To apply for the next application, please contact support or apply tomorrow')]);
