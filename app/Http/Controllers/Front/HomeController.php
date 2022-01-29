@@ -18,7 +18,9 @@ class HomeController extends Controller
 
     public function home(): \Illuminate\Contracts\View\View
     {
-        $posts = $this->postService->getWithPaginate(perPage: 3);
+        $posts = $this->postService->getWithPaginate(queries: [
+            ['published_at', '>', now()]
+        ], perPage: 3);
         $technologies = $this->technologyService->get();
         $services = $this->serviceService->getWithPaginate(perPage: 3);
 

@@ -15,7 +15,9 @@ class PostController extends Controller
 
     public function PostList(): \Illuminate\Contracts\View\View
     {
-        $posts = $this->postService->getWithPaginate();
+        $posts = $this->postService->getWithPaginate(queries: [
+            ['published_at', '>', now()]
+        ]);
 
         return view('front.posts.post_list', compact('posts'));
     }
