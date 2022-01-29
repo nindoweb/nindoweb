@@ -45,7 +45,7 @@ class RequestForm extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Text::make(__('Company name'), 'company_name')
+            Text::make(__('Company name'), 'company')
                 ->rules('required', 'max:255'),
 
             Text::make(__('Email'), 'email')
