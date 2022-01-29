@@ -6,7 +6,7 @@ use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\SitemapController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::group(['prefix' => 'posts/', 'as' => 'posts.'] , function () {
    Route::get('', [PostController::class, 'postList'])->name('list');

@@ -3,15 +3,15 @@
         <div class="navBarLeftBox d-flex justify-content-between justify-content-lg-start align-items-center">
             <div class="d-flex align-items-center">
                 <span class="mx-md-3 mx-1 navItem"><img src="{{ asset('front/images/logo.svg') }}" width="65" height="65" alt="Nindoweb logo"></span>
-                <span class="mx-md-3 mx-1 navItem active" onclick="changeUrl($(this).text())">
+                <span class="mx-md-3 mx-1 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'home') active @endif " onclick="changeUrl($(this).text())">
                     <a class="navItem" href="/">
                         {{__('Home')}}
                     </a>
                 </span>
-                <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">
+                <span class="mx-md-3 mx-1 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'teams.index') active @endif" onclick="changeUrl($(this).text())">
                     {{ __('Team') }}
                 </span>
-                <span class="mx-md-3 mx-1 navItem" onclick="changeUrl($(this).text())">
+                <span class="mx-md-3 mx-1 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'posts.list') active @endif onclick="changeUrl($(this).text())">
                     <a class="navItem" href="{{ route('posts.list') }}">
                         {{ __('Blog') }}
                     </a>
