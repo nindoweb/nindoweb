@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Services\Front\PostService;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -24,6 +23,11 @@ class PostController extends Controller
 
     public function PostDetail(Post $post, $postSLug): \Illuminate\Contracts\View\View
     {
-        return view('front.posts.post_detail', compact('post'));
+        $posts = $this->postService->getWithPaginate(queries: [
+            ['published_at', '>', now()],
+            ['id', '!=', $post->id]
+        ], perPage: 3);
+
+        return view('front.posts.post_detail', compact('post', 'posts'));
     }
 }

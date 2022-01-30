@@ -14,6 +14,11 @@ body {
     min-width: 360px;
     margin: 0 auto;
 }
+.navItem:hover {
+    text-decoration: none;
+    color: #FF2D20;
+    transition: .2s;
+}
 #indexParent {
     padding-top: 5px;
     margin-bottom: 0;
@@ -23,6 +28,7 @@ body {
     width: 98%;
     height: 40px;
 }
+
 .navBarLeftBox{
     border: 1px solid #ff2c1f;
     border-radius: 5px;
@@ -54,11 +60,16 @@ body {
     color: #fff;
     width: 15%;
     height: 40px;
-    font-size: 15px;
+    font-size: 14px;
     text-align: left;
     font-weight: bold;
     min-width: 180px;
+    text-decoration: none;
     /* max-width: 180px; */
+}
+.navBarLunchBtn:hover {
+    color: #FFF;
+    text-decoration: none !important;
 }
 #section1{
     width: 90%;
@@ -98,6 +109,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     transition: 0.2s;
+    background-image: url('./../images/NindoWeb.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -199,14 +211,14 @@ body {
 
 }
 #section6 .item-bg .item1{
-    width: 87%;
+    width: 90%;
     margin: 0 auto;
     font-size: 20px;
     font-weight: bold;
 }
 #section6 .item-bg .item2{
     position: relative;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     font-size: 18px;
     font-weight: bold;
@@ -220,14 +232,18 @@ body {
     position: absolute;
     width: 50px;
     height: 50px;
-    bottom: -2px;
+    /* bottom: -2px; */
     margin-left: -18px;
     border-radius: 360px;
     background: #FF2D20;
 
 }
 #section6 .item-bg .item2 div{
-    width: 20%;
+    width: 25%;
+}
+#section6 .item-bg .item2 div:last-child{
+    width: 25%;
+    max-width: 250px;
 }
 #section6 .btn {
     border: none;
@@ -334,7 +350,7 @@ body {
 #section2Blog {
     width: 100%;
     padding: 60px 40px;
-    margin: 40px 10px;
+    margin: 40px 0px;
     border-top: 1px solid #000000;
 }
 #section2Blog .blog1 {
@@ -342,18 +358,20 @@ body {
     width: 26%;
     margin: 60px 0;
 }
-#section2Blog .blog1 svg{
+#section2Blog .blog1 img{
     max-width: 360px;
     max-height: 360px;
+    border-radius: 5px;
     width: 100%;
     height: 100%;
 }
 #section2Blog .blog1 .item1 {
     width: 100%;
-    height: 100%;
+    height: 200px;
     display: flex;
     justify-content: flex-start;
 }
+
 #section2Blog .blog1 .item2 {
     width: 100%;
     height: 100%;
@@ -362,13 +380,16 @@ body {
 #section2Blog .blog1 .item2 div {
     margin: 15px 0;
 }
-#section2Blog .blog1 .item2 button{
+
+#section2Blog .blog1 .item2 a{
     color: #fff;
-    background: #61DAFB;
-    border: none;
+    border: 1px solid #FF2D20;
+    color: #FF2D20;
+    text-decoration: none;
     border-radius: 3px;
     padding: 7px 25px;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: bold;
 }
 #section2Blog .blog1 .item2 .lastChild {
     border-top: 1px solid #000000;
@@ -463,29 +484,196 @@ body {
     -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
   }
   .maniTitle{
-      height: 80px;
+      height: 120px;
   }
-
-  /* .maniTitle h1:nth-child(3){
-      color: #FF2D20 !important;
-  } */
+  #singleBlogSection1{
+      width: 100%;
+      height: 400px;
+  }
+  #singleBlogSection1 {
+      width: 90%;
+      height: 400px;
+      margin: 60px 0 30px 0;
+      border-radius: 5px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  #singleBlogSection2{
+      width: 90%;
+  }
+  #singleBlogSection2 p{
+    font-size: 50px;
+    color: #5C5C5C;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+  }
+  #singleBlogSection3 {
+      width: 90%;
+  }
+  #singleBlogSection3 span {
+      font-size: 12px;
+      font-weight: bold;
+      color: #5C5C5C;
+      margin: 10px 25px 40px 0;
+  }
+  #singleBlogSection3 img {
+      width: 20px;
+      height: 20px;
+  }
+  #singleBlogSection4{
+      width: 90%;
+  }
+  #singleBlogSection4 span {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      line-height: 2;
+  }
+  #singleBlogSection4 p {
+      font-size: 15px;
+  }
+  #singleBlogSection5{
+      width: 100%;
+      margin: 60px 0 0px 0;
+  }
+  #teamSection1 {
+      width: 90%;
+      height: fit-content;
+      margin: 60px 0;
+  }
+  #teamSection1 .item{
+      width: 30%;
+  }
+  #teamSection1 .person1 {
+      background-image: url('./../images/khashayartoubi.jpeg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 400px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.25);
+      transition: 0.2s;
+  }
+  #teamSection1 .person1:hover {
+      transform: scale(1.02)
+      translate(5px)
+  }
+  #teamSection1 .person2 {
+    background-image: url('./../images/mohsenbagheri.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+}
+#teamSection1 .person2:hover {
+    transform: scale(1.02)
+    translate(5px)
+}
+#teamSection1 .person3 {
+    background-image: url('./../images/mohamadahmadi.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+}
+#teamSection1 .person3:hover {
+    transform: scale(1.02)
+    translate(5px)
+}
+#teamSection1 .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5C5C5C;
+}
+#teamSection1 .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FF2D20;
+}
 @media (max-width: 991px) {
+    #section1 h3 {
+        font-size: 20px;
+    }
+    #section1 p {
+        font-size: 16px;
+    }
+    #section6 .item-bg .item1{
+        width: 80%;
+        margin: 0 auto;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #section6 .item-bg{
+        height: 800px;
+    }
+
+    #section6 .item-bg .item2{
+        position: relative;
+        width: 80%;
+        height: 500px;
+        margin: 0 auto;
+        font-size: 18px;
+        font-weight: bold;
+        border-bottom: 1px solid #FF2D20;
+    }
+    #section6 .item-bg .item2 .ball-bg{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 360px;
+        margin-top: -12px;
+        background: #FF2D20;
+    }
+    #section6 .item-bg .item2 {
+        border-left: 1px solid #FF2D20;
+        border-bottom: none;
+    }
+    #section6 .btn{
+        width: 100%;
+    }
+    #section6 .item-bg .item2 div{
+        width: 40%;
+    }
     #LunchSection-1 {
         margin: 20px 0;
+        width: 100%;
+    }
+    #LunchSection-1 .parentLunch{
+        width: 100%;
+        padding: 0 10px;
     }
     #LunchSection-1 fieldset {
         margin: 30px 0px 0 0;
-        width: 350px;
+        width: 100%;
     }
     #LunchSection-1 button{
         margin: 10px 0px 0 0;
     }
     #LunchSection-1 textarea {
-        width: 350px;
+        width: 100%;
         height: 200px;
+        margin: 40px 0px 0px 0px;
+    }
+    #LunchSection-1 input {
+        width: 100%;
     }
     #section2Blog{
-        padding: 60px 20px;
+        padding: 60px 10px;
     }
     #section2Blog .blog1{
         width: 49%;
@@ -497,6 +685,7 @@ body {
     }
     #section2Blog .blog1 .item1{
         width: 100%;
+
     }
 
     .navItem{
@@ -531,7 +720,12 @@ body {
         width: 50%;
         margin: 50px 0;
     }
-
+    #section1 h1{
+        font-size: 40px !important;
+    }
+    #section1 {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -551,8 +745,11 @@ body {
         width: 120px;
     }
 
-    #section1 h1{
-        font-size: 50px !important;
+    /* #section1 h1{
+        font-size: 25px !important;
+    } */
+    #section1 {
+        padding: 0;
     }
     #section2 {
         height: auto;
@@ -614,29 +811,4 @@ body {
         margin: 50px 0;
     }
 
-}
-
-.read-more-btn {
-    color: #FF2D20;
-    border: 1px solid #FF2D20;
-    border-radius: 5px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 40px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.read-more-btn:hover{
-    color: #FF2D20;
-    border: 1px solid #FF2D20;
-}
-
-.post-card-img {
-    object-fit: cover;
-    width: 339px;
-    height: 300px;
 }

@@ -60,7 +60,31 @@ $(document).ready(function(){
         }
         }
         typeon();
-        cleartypeon();
+
+        var postHeight = $('.blog1').children();
+        for (let post = 0; post < postHeight.length; post++) {
+            var element = postHeight[post].textContent.split("\n").length;
+            if(element>12){
+                $('.blog1').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
+            }
+        }
+            // var text = $('.maniTitle').text();
+            // var pos = 0;
+            // var delay = 70; // milliseconds
+            // function typeon1() {
+            // pos++;
+            // var typedText = text.substr(0, pos);
+            // if(pos < text.length){
+            //     $('.maniTitle').text(typedText);
+            //     if(pos < 60){
+            //         if (pos < text.length) {
+            //             setTimeout(typeon1, delay);       
+            //         }
+            //     }  
+            // }
+            // }
+            // typeon1();
+        
 })
 
 

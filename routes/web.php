@@ -4,6 +4,7 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\LaunchController;
 use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\SitemapController;
+use App\Http\Controllers\Front\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -23,4 +24,8 @@ Route::group(['prefix' => 'launch/', 'as' => 'launch.'], function () {
 Route::group(['prefix' => 'sitemap.xml/'], function () {
     Route::get('', [SitemapController::class, 'index']);
     Route::get('posts', [SitemapController::class, 'posts']);
+});
+
+Route::group(['prefix' => 'teams', 'as' => 'teams.'], function () {
+    Route::get('', [TeamController::class, 'index'])->name('index');
 });

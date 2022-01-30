@@ -1,4 +1,9 @@
-@extends('front.layouts.app')
+@extends('front.layouts.app')    @include('front.layouts.path', [
+        'redText' => 'B',
+        'regularText' => 'log',
+        'description' => 'You better know what’s going on!',
+        //'subDescription' => 'Design, develop, test, launch just in a snap.'
+    ])
 
 @section('title', __('Post List'))
 
@@ -13,24 +18,24 @@
     <section id="section2Blog">
         <div class="d-flex flex-md-row flex-wrap justify-content-md-between justify-content-center">
             @foreach($posts as $post)
-                <div class="blog1 d-flex flex-column ">
+                <div class="blog1 d-flex flex-column">
                 <div class="item1">
-                    <img class="post-card-img" src="/storage/{{ $post->image }}" alt="{{ $post->title }}" />
+                    <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}">
                 </div>
                 <div class="item2 d-flex flex-column justify-content-end">
                     <div>
-                        <span style="font-size: 30px;font-weight: bold;">
+                        <span style="font-size: 20px;font-weight: bold;">
                             {{ $post->title }}
                         </span>
                     </div>
-                    <div>
-                        <div class="heightPost">
-                            {!! \Illuminate\Support\Str::words($post->content, 200) !!}
-                        </div>
+                    <div class="heightPost">
+                        <span style="font-size: 14px;font-weight: bold;">
+                            {!! \Illuminate\Support\Str::words($post->content, 250) !!}
+                        </span>
                     </div>
                     <div>
-                        <a class="read-more-btn" href="{{ route('posts.detail', [$post->code, $post->slug]) }}">
-                            {{ __('Read more') }}
+                        <a href='{{ route('posts.detail', [$post->code, $post->slug]) }}'>
+                            {{__('Read more')}}
                         </a>
                     </div>
                     <div class="lastChild d-flex justify-content-between">

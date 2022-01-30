@@ -12,8 +12,8 @@ class TeamController extends Controller
     {
     }
 
-    public function teams(): \Illuminate\Contracts\View\View
+    public function index(): \Illuminate\Contracts\View\View
     {
-        return view('front.teams');
+        return view('front.teams.index');
     }
 }
