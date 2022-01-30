@@ -14,6 +14,10 @@ class TeamController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View
     {
-        return view('front.teams.index');
+        $users = $this->userService->getWithPaginate(queries: [
+            ['team_id', '!=', null]
+        ]);
+
+        return view('front.teams.index', compact('users'));
     }
 }

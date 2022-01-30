@@ -12,39 +12,18 @@
 
     <section id="teamSection1">
         <div class="d-flex justify-content-between align-items-center">
-            <div class="item">
-                <div class="person1">
-
+            @foreach($users as $user)
+                <div class="item">
+                <div class="person1" style="background-image: url({{ '/storage/'.$user->avatar }});">
                 </div>
                 <p class="name mt-3 mb-1">
-                    khashayar toubi
+                    {{ $user->name }}
                 </p>
                 <p class="title">
-                    Front-End Developer
+                    {{ $user->team->name }}
                 </p>
             </div>
-            <div class="item">
-                <div class="person2">
-
-                </div>
-                <p class="name mt-3 mb-1">
-                    mohsen bagheri
-                </p>
-                <p class="title">
-                    Back-End Developer
-                </p>
-            </div>
-            <div class="item">
-                <div class="person3">
-
-                </div>
-                <p class="name mt-3 mb-1">
-                    mohammad ahmadi
-                </p>
-                <p class="title">
-                    UX/UI Designer
-                </p>
-            </div>
+            @endforeach
         </div>
     </section>
 @endsection
