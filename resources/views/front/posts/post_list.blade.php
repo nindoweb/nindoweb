@@ -1,9 +1,4 @@
-@extends('front.layouts.app')    @include('front.layouts.path', [
-        'redText' => 'B',
-        'regularText' => 'log',
-        'description' => 'You better know what’s going on!',
-        //'subDescription' => 'Design, develop, test, launch just in a snap.'
-    ])
+@extends('front.layouts.app')
 
 @section('title', __('Post List'))
 
