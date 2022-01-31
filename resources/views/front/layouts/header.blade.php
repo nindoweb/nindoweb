@@ -8,8 +8,8 @@
                 <a href="{{ route('posts.list') }}" class="mx-md-3 mx-1 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'posts.list') active @endif" onclick="changeUrl($(this).text())">{{__('Blog')}}</a>
             </div>
             <div style="position: relative;overflow: hidden;">
-                <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="./images/Rocket.svg" width="40px" height="40px" alt="Rocket" title="Rocket">
-                <a href="./lunch.html" onclick="changeUrl($(this).text())" class="navBarLunchBtn d-lg-none d-flex align-items-center px-2 w-100">
+                <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="Rocket" title="Rocket">
+                <a href="{{ route('launch.show') }}" onclick="changeUrl($(this).text())" class="navBarLunchBtn d-lg-none d-flex align-items-center px-2 w-100">
                     {{ __('Launch your project') }}
                 </a>
             </div>
