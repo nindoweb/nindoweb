@@ -8,8 +8,8 @@
                         </span>
                 </div>
                 <div style="position: relative;overflow: hidden;" class="foterLunch d-flex justify-content-start">
-                    <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket.svg') }}"
-                         width="40px" height="40px" alt="{{__('Launch your project with nindoweb')}}" title="{{__('Launch your project with nindoweb')}}">
+                    <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket2.svg') }}"
+                         width="60px" height="50px" alt="{{__('Launch your project with nindoweb')}}" title="{{__('Launch your project with nindoweb')}}">
                     <a class="btn" href="{{ route('launch.show') }}">{{__('Launch your project')}}</a>
                 </div>
                 <div>

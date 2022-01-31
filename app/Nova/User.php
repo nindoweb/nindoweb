@@ -50,7 +50,6 @@ class User extends Resource
                 ->disk('public')
                 ->squared(),
 
-
             Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
