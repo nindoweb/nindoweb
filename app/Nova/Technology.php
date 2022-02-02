@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -59,8 +60,9 @@ class Technology extends Resource
                 ->hideWhenUpdating()
                 ->hideFromIndex(),
 
-            Trix::make(__('Content'), 'content')
+            Trix::make(__('Content'), 'content'),
 
+            BelongsTo::make(__('Service'), 'service')
 
         ];
     }

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -54,7 +55,9 @@ class Service extends Resource
                 ->updateRules('required', 'min:2', 'unique:services,name,{{resourceId}}'),
 
             Trix::make(__('Content'), 'content')
-                ->rules('nullable')
+                ->rules('nullable'),
+
+            HasMany::make(__('Technologies'), 'technologies')
         ];
     }
 
