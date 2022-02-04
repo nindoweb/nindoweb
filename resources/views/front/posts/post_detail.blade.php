@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('title', __('Post List'))
+@section('title', $post->title)
 
 @section('content')
     <div id="singleBlogSection1" style="background-image: url('{{ '/storage/'. $post->image }}');">

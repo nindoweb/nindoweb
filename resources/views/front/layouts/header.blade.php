@@ -24,10 +24,12 @@
     <nav id="navBar" class="d-flex justify-content-center justify-content-xl-center align-items-center col-12">
         <div class="navBarLeftBox d-flex align-items-center">
             <div class="d-flex align-items-center">
-                <a href=".{{ route('home') }}" class="mx-md-3 mx-2 mb-3 navItem"><img src="{{ asset('front/images/NindoWebLogo.svg') }}" width="50" height="50" alt="logo"></a>
-                <a href="{{ route('home') }}" class="mx-md-3 mx-2 navItem active" onclick="changeUrl($(this).text())">{{__('Home')}}</a>
-                <a href="{{ route('teams.index') }}" class="mx-md-3 mx-2 navItem" onclick="changeUrl($(this).text())">{{__('Team')}}</a>
-                <a href="{{ route('posts.list') }}" class="mx-md-3 mx-2 navItem" onclick="changeUrl($(this).text())">{{__('Blog')}}</a>
+                <a href="{{ route('home') }}" class="mx-md-3 mx-2 mb-3 navItem">
+                    <img src="{{ asset('front/images/NindoWebLogo.svg') }}" width="50" height="50" alt="{{ __('NindoWeb') }}">
+                </a>
+                <a href="{{ route('home') }}" class="mx-md-3 mx-2 navItem  @if(\Request::route()->getName() == 'home') active @endif" onclick="changeUrl($(this).text())">{{__('Home')}}</a>
+                <a href="{{ route('teams.index') }}" class="mx-md-3 mx-2 navItem @if(\Request::route()->getName() == 'teams.index') active @endif" onclick="changeUrl($(this).text())">{{__('Team')}}</a>
+                <a href="{{ route('posts.list') }}" class="mx-md-3 mx-2 navItem @if(\Request::route()->getName() == 'posts.list') active @endif" onclick="changeUrl($(this).text())">{{__('Blog')}}</a>
             </div>
             <div style="position: relative;overflow: hidden;">
                 <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="Rocket" title="Rocket">

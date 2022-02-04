@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = $this->postService->getWithPaginate(queries: [
             ['published_at', '<', now()]
-        ]);
+        ], with: ['user']);
 
         return view('front.posts.post_list', compact('posts'));
     }
@@ -26,7 +26,7 @@ class PostController extends Controller
         $posts = $this->postService->getWithPaginate(queries: [
             ['published_at', '<', now()],
             ['id', '!=', $post->id]
-        ], perPage: 3);
+        ], with:['user'], perPage: 3);
 
         return view('front.posts.post_detail', compact('post', 'posts'));
     }
