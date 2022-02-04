@@ -11,7 +11,6 @@
     ])
 
     @include('front.layouts.components.services')
-    @include('front.layouts.components.technologies')
     @include('front.layouts.components.ordering_proccess')
     @include('front.layouts.components.blog')
 

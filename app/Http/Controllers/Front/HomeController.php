@@ -9,8 +9,7 @@ use App\Services\Front\TechnologyService;
 
 class HomeController extends Controller
 {
-    public function __construct(private TechnologyService $technologyService,
-                                private PostService $postService,
+    public function __construct(private PostService $postService,
                                 private ServiceService $serviceService)
     {
     }
@@ -18,14 +17,12 @@ class HomeController extends Controller
     public function home(): \Illuminate\Contracts\View\View
     {
         $posts = $this->postService->getWithPaginate(queries: [
-            ['published_at', '>', now()]
-        ], perPage: 3);
-        $technologies = $this->technologyService->get();
-        $services = $this->serviceService->getWithPaginate(perPage: 3);
+            ['published_at', '<', now()]
+        ], with: ['user'], perPage: 3);
+        $services = $this->serviceService->getWithPaginate(with: ['technologies'], perPage: 3);
 
         return view('front.home', compact(
             'posts',
-            'technologies',
             'services'));
     }
 }

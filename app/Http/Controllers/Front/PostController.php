@@ -15,7 +15,7 @@ class PostController extends Controller
     public function PostList(): \Illuminate\Contracts\View\View
     {
         $posts = $this->postService->getWithPaginate(queries: [
-            ['published_at', '>', now()]
+            ['published_at', '<', now()]
         ]);
 
         return view('front.posts.post_list', compact('posts'));
@@ -24,7 +24,7 @@ class PostController extends Controller
     public function PostDetail(Post $post, $postSLug): \Illuminate\Contracts\View\View
     {
         $posts = $this->postService->getWithPaginate(queries: [
-            ['published_at', '>', now()],
+            ['published_at', '<', now()],
             ['id', '!=', $post->id]
         ], perPage: 3);
 

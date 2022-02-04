@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -53,6 +54,8 @@ class Technology extends Resource
             Text::make(__('Title'), 'title')
                 ->creationRules('required', 'min:2', 'max:255', 'unique:technologies,title')
                 ->updateRules('required', 'min:2', 'max:255', 'unique:technologies,title,{{resourceId}}'),
+
+            BelongsTo::make(__('Service'), 'service'),
 
             Text::make(__('Slug'), 'slug')
                 ->hideWhenCreating()

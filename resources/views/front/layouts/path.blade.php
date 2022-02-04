@@ -1,12 +1,11 @@
-<section id="section1" class="d-flex flex-column mt-5">
-
-    <h1 class="maniTitle d-flex">
-        <div class="colorTitle">{{__('Nindo')}}<div class="mx-0 px-x">{{$redText ?? ''}}</div><div class="mx-0 px-x">{{$regularText ?? ''}}</div></div>
+<section id="teamHeader" class="customContainer d-flex flex-column mt-5">
+    <h1>
+        {{__('Nindo')}} <span style="color: red;margin-left: -20px;">{{$redText ?? ''}}</span>{{$regularText ?? ''}}
     </h1>
-    <h3>
+    <h3 class="mt-1 mb-5">
         {{ $description ?? '' }}
     </h3>
-    <p class="mt-2">
+    <p>
         {{ $subDescription ?? '' }}
     </p>
 </section>

@@ -9,7 +9,7 @@
 </head>
 <body id="indexParent" class="d-flex flex-column mt-3">
     @include('front.layouts.header')
-    <main class="d-flex flex-column justify-content-between align-items-center">
+    <main class="@if(!\Request::is('/')) customContainer @endif d-flex flex-column justify-content-between align-items-center">
         @yield('content')
     </main>
     @include('front.layouts.footer')

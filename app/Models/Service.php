@@ -11,4 +11,9 @@ class Service extends Model
 {
     use HasFactory,
         SoftDeletes;
+
+    public function technologies(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Technology::class);
+    }
 }
