@@ -62,8 +62,9 @@ class Technology extends Resource
                 ->hideWhenUpdating()
                 ->hideFromIndex(),
 
-            Trix::make(__('Content'), 'content')
+            Trix::make(__('Content'), 'content'),
 
+            BelongsTo::make(__('Service'), 'service')
 
         ];
     }

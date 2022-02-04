@@ -57,7 +57,9 @@ class Service extends Resource
             HasMany::make(__('Technologies'), 'technologies'),
 
             Trix::make(__('Content'), 'content')
-                ->rules('nullable')
+                ->rules('nullable'),
+
+            HasMany::make(__('Technologies'), 'technologies')
         ];
     }
 
