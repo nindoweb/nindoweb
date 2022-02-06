@@ -64,8 +64,6 @@ class Technology extends Resource
 
             Trix::make(__('Content'), 'content'),
 
-            BelongsTo::make(__('Service'), 'service')
-
         ];
     }
 

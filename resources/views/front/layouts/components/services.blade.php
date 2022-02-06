@@ -16,7 +16,7 @@
         @foreach($services as $service)
             <div class="tab-pane fade @if($services->first()->id == $service->id ) show active @endif" id="nav-{{$service->code}}" role="tabpanel" aria-labelledby="nav-home-tab">
             <p>
-                {{ $service->content }}
+                {{ strip_tags($service->content) }}
                 <span class="homeServiseBackground">{{__('Technologies we use for web development:')}}</span>
             </p>
             <div class="d-flex justify-content-center flex-md-row flex-column align-items-center">

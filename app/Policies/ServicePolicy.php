@@ -22,7 +22,7 @@ class ServicePolicy
 
     public function create(User $user): bool
     {
-        return $user->is_staff;
+        return false;
     }
 
     public function update(User $user, Service $service): bool

@@ -54,12 +54,16 @@ class Service extends Resource
                 ->creationRules('required', 'min:2', 'unique:services,name')
                 ->updateRules('required', 'min:2', 'unique:services,name,{{resourceId}}'),
 
+            Text::make(__('Code'), 'code')
+                ->exceptOnForms()
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->hideFromIndex(),
+
             HasMany::make(__('Technologies'), 'technologies'),
 
             Trix::make(__('Content'), 'content')
                 ->rules('nullable'),
-
-            HasMany::make(__('Technologies'), 'technologies')
         ];
     }
 

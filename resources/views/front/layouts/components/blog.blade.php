@@ -20,7 +20,7 @@
             <p class="heightPost">
                 {{ strip_tags(\Illuminate\Support\Str::words($post->content)) }}
             </p>
-            <a  class="btn from-left mt-4 mb-3" href="{{ route('post.detail',[$post->code, $post->slug]) }}">
+            <a  class="btn from-left mt-4 mb-3" href="{{ route('posts.detail',[$post->code, $post->slug]) }}">
                 {{ __('Read more') }}
             </a>
             <div id="IndexBlogSection3" class="d-flex align-items-center justify-content-between">

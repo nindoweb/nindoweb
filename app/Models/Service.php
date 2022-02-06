@@ -15,6 +15,10 @@ class Service extends Model
     use HasFactory,
         SoftDeletes;
 
+    protected $fillable = [
+        'name', 'code', 'content'
+    ];
+
     public function technologies(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Technology::class);
