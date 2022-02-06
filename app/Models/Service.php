@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
+/**
+ * @property mixed|string code
+ */
 class Service extends Model
 {
     use HasFactory,

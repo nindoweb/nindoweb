@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    @include('front.layouts.styles')
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href='{{ asset('front/css/newstyle.css') }}'>
+    <link rel="shortcut icon" type="image/ico" href="{{ asset('front/images/NindoWebLogo.svg') }}">
+    @yield('styles')
 </head>
 <body id="indexParent" class="d-flex flex-column mt-3">
     @include('front.layouts.header')
-    <main class="@if(!\Request::is('/')) customContainer @endif d-flex flex-column justify-content-between align-items-center">
-        @yield('content')
-    </main>
+    @yield('content')
     @include('front.layouts.footer')
-
-    @include('front.layouts.scripts')
+    <script src="{{ asset('front/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('front/node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src='{{ asset('front/js/main.js') }}'></script>
+    @yield('scripts')
 </body>
 </html>

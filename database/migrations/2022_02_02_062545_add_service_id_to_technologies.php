@@ -16,7 +16,7 @@ class AddServiceIdToTechnologies extends Migration
         Schema::table('technologies', function (Blueprint $table) {
             $table->foreignId('service_id')->nullable()->after('user_id');
 
-            $table->foreign('service_id')->references('service_id')->on('services')
+            $table->foreign('service_id')->references('id')->on('services')
                 ->onUpdate('cascade')->onDelete('set null');
         });
     }

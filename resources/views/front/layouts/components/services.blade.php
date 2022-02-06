@@ -1,26 +1,33 @@
-<section id="section2" class="my-5">
-    <div class="customContainer box d-flex flex-md-row flex-column justify-content-between align-items-center h-100">
-        <div onclick="Web()" class="item bg1 d-flex justify-content-end px-4 pb-4 flex-column">
-            <h4>Web</h4>
-            <h4>Development</h4>
-        </div>
-        <div onclick="MobileApp()" class="item bg2 active d-flex justify-content-end px-2 pb-4 flex-column">
-            <h4>Mobile App</h4>
-            <h4>Development</h4>
-        </div>
-        <div onclick="Ui()" class="item bg3 d-flex justify-content-end px-2 pb-4 flex-column">
-            <h4>UX/UI</h4>
-            <h4>Development</h4>
-        </div>
+<section id="homesection2" class="my-5">
+    <div class="nav nav-tabs container-custom box d-flex flex-lg-row flex-column justify-content-between align-items-center h-100" id="nav-tab" role="tablist">
+        @foreach($services as $service)
+            <div class="nav-link item bg1 servicesItem d-flex justify-content-end flex-column @if($services->first()->id == $service->id ) active @endif"
+                 id="nav-{{$service->code}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$service->code}}" type="button" role="tab"
+                 aria-controls="nav-{{$service->code}}" aria-selected="true">
+                <img src="/storage/{{ $service->image }}" alt="{{ $service->name }}">
+                <p class="abov1">{{ $service->name }}</p>
+{{--                <p class="abov2">Development</p>--}}
+            </div>
+        @endforeach
     </div>
 </section>
-<section id="section3" class="customContainer InfoSkil d-flex justify-content-center">
-    <p id="IndexSkilInfo" class="col-11 indexheightPost bottom-overflow-fade">
-        <!-- Security, agility, and stability all together mean NindoWeb’s standards. By using the latest technologies, we guarantee your website will be the best in the field. We keep improving all aspects until the best. The technologies we use for web development: -->
-    </p>
-</section>
-<section id="section4" class="customContainer skilLogo d-flex flex-sm-row flex-wrap flex-column align-items-center justify-content-center my-5 logo">
-    <div class="mx-5 my-4"><img src="./images/python.svg" width="70px" height="70px" alt="react" title="react"></div>
-    <div class="mx-5 my-4"><img src="./images/python.svg" width="70px" height="70px" alt="php" title="php"></div>
-    <div class="mx-5 my-4"><img src="./images/python.svg" width="70px" height="70px" alt="Python" title="python"></div>
+<section id="homesection3" class="container-custom servicesPost heightPost d-flex justify-content-center">
+    <div class="tab-content" id="nav-tabContent">
+        @foreach($services as $service)
+            <div class="tab-pane fade @if($services->first()->id == $service->id ) show active @endif" id="nav-{{$service->code}}" role="tabpanel" aria-labelledby="nav-home-tab">
+            <p>
+                {{ $service->content }}
+                <span class="homeServiseBackground">{{__('Technologies we use for web development:')}}</span>
+            </p>
+            <div class="d-flex justify-content-center flex-md-row flex-column align-items-center">
+                @foreach($service->technologies as $technology)
+                    <div class="mx-5 my-4">
+                        <img src="/storage/{{$technology->image}}" width="70px" height="70px"
+                             alt="{{ $technology->name }}" title="{{ $technology->name }}">
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        @endforeach
+    </div>
 </section>
