@@ -48,7 +48,8 @@ class Service extends Resource
 
             Image::make(__('Image'), 'image')
                 ->creationRules('required', 'max:512')
-                ->updateRules('nullable'),
+                ->updateRules('nullable')
+                ->prunable(),
 
             Text::make(__('Name'), 'name')
                 ->creationRules('required', 'min:2', 'unique:services,name')

@@ -49,7 +49,8 @@ class Technology extends Resource
             Image::make(__('Image'), 'image')
                 ->creationRules('required', 'max:512')
                 ->updateRules('max:512')
-                ->squared(),
+                ->squared()
+                ->prunable(),
 
             Text::make(__('Title'), 'title')
                 ->creationRules('required', 'min:2', 'max:255', 'unique:technologies,title')

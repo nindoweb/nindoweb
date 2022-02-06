@@ -48,7 +48,8 @@ class User extends Resource
 
             Avatar::make(__('Avatar'), 'avatar')
                 ->disk('public')
-                ->squared(),
+                ->squared()
+                ->prunable(),
 
             Text::make('Name')
                 ->sortable()

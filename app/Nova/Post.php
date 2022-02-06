@@ -51,7 +51,8 @@ class Post extends Resource
 
             Image::make(__('Image'), 'image')
                 ->disk('public')
-                ->creationRules('required', 'max:5000', 'min:50'),
+                ->creationRules('required', 'max:5000', 'min:50')
+                ->prunable(),
 
             BelongsTo::make(__('Category'), 'category'),
 

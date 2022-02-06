@@ -47,7 +47,8 @@ class Project extends Resource
 
             Image::make(__('Logo'), 'logo')
                 ->creationRules('required', 'max:200')
-                ->updateRules('nullable'),
+                ->updateRules('nullable')
+                ->prunable(),
 
             Text::make(__('Name'), 'name')
                 ->creationRules('required', 'min:2', 'unique:services,name')
