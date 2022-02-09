@@ -55,6 +55,9 @@ class Service extends Resource
                 ->creationRules('required', 'min:2', 'unique:services,name')
                 ->updateRules('required', 'min:2', 'unique:services,name,{{resourceId}}'),
 
+            Text::make(__('Sub Name'), 'sub_name')
+                ->rules('required', 'min:2'),
+
             Text::make(__('Code'), 'code')
                 ->exceptOnForms()
                 ->hideWhenCreating()
