@@ -6,8 +6,8 @@
                     <img src="{{ asset('front/images/NindoWebLogo.svg') }}" width="50" height="50" alt="{{ config('app.name') }}">
                 </a>
                 <a href="{{ route('home') }}" class="mx-md-3 mx-2 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'home') active @endif">{{__('Home')}}</a>
-{{--                <a href="{{ route('teams.index') }}" class="mx-md-3 mx-2 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'teams.index') active @endif">{{__('Team')}}</a>--}}
-{{--                <a href="{{ route('posts.list') }}" class="mx-md-3 mx-2 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'posts.list') active @endif">{{__('Blog')}}</a>--}}
+                <a href="{{ route('teams.index') }}" class="mx-md-3 mx-2 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'teams.index') active @endif">{{__('Team')}}</a>
+                <a href="{{ route('posts.list') }}" class="mx-md-3 mx-2 navItem @if(\Illuminate\Support\Facades\Request::route()->getName() == 'posts.list') active @endif">{{__('Blog')}}</a>
             </div>
             <div style="position: relative;overflow: hidden;">
                 <img style="position: absolute;right: 0;bottom: -5px;right: 0;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="{{__('Launch your project')}}" title="Rocket">
