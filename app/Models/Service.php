@@ -19,6 +19,15 @@ class Service extends Model
         'name', 'code', 'content'
     ];
 
+    public $append = [
+        'fullName'
+    ];
+
+    public function getFullNameAttribute(): string
+    {
+        return $this->name.' '.$this->sub_name;
+    }
+
     public function technologies(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Technology::class);

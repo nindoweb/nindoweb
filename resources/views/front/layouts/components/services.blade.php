@@ -17,7 +17,9 @@
             <div class="tab-pane fade @if($services->first()->id == $service->id ) show active @endif" id="nav-{{$service->code}}" role="tabpanel" aria-labelledby="nav-{{$service->code}}-tab">
             <p>
                 {{ strip_tags($service->content) }}
-                <span class="homeServiseBackground">{{__('Technologies we use for ')}}{{ $service->name . ':'}}</span>
+                <span class="homeServiseBackground">
+                    {{__('Technologies we use for ')}}{{ $service->fullName . ':'}}
+                </span>
             </p>
             <div class="d-flex justify-content-center flex-md-row flex-column align-items-center container-custom flex-wrap">
                 @foreach($service->technologies as $technology)
