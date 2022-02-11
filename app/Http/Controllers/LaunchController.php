@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\LaunchRequest;
 use App\Services\Front\RequestFormService;
 

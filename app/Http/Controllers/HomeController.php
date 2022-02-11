@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Services\Front\PostService;
 use App\Services\Front\ServiceService;
 

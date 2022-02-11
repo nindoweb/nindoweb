@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Services\Front\UserService;
-use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
