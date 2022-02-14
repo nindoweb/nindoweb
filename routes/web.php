@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HireController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LaunchController;
 use App\Http\Controllers\PostController;
@@ -15,8 +16,15 @@ Route::group(['prefix' => 'posts/', 'as' => 'posts.'] , function () {
 });
 
 Route::group(['prefix' => 'launch/', 'as' => 'launch.'], function () {
-    Route::get('', [LaunchController::class, 'show'])->name('show');
+    Route::get('', [LaunchController::class, 'create'])->name('create');
     Route::post('store/', [LaunchController::class, 'store'])
+        ->middleware('honeypot')
+        ->name('store');
+});
+
+Route::group(['prefix' => 'hiring/', 'as' => 'hiring.'], function () {
+    Route::get('', [HireController::class, 'create'])->name('create');
+    Route::post('store/', [HireController::class, 'store'])
         ->middleware('honeypot')
         ->name('store');
 });

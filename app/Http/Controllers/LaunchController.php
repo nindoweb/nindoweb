@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Front\LaunchRequest;
+use App\Http\Requests\LaunchRequest;
 use App\Services\Front\RequestFormService;
 
 class LaunchController extends Controller
@@ -11,9 +11,9 @@ class LaunchController extends Controller
     {
     }
 
-    public function show(): \Illuminate\Contracts\View\View
+    public function create(): \Illuminate\Contracts\View\View
     {
-        return view('front.launch.show');
+        return view('front.launch.create');
     }
 
     public function store(LaunchRequest $launchRequest): \Illuminate\Http\RedirectResponse

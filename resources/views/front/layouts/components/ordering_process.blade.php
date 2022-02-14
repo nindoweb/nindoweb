@@ -16,7 +16,7 @@
             <div><div class="ball-bg"></div><span>{{__('Design & Development')}}</span></div>
             <div style="position: relative;overflow: hidden;" class="d-flex justify-content-end">
                 <img style="position: absolute;right: 0;bottom: -5px;z-index: 100000000;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="Rocket" title="Rocket">
-                <a class="btn" href="{{ route('launch.show') }}">{{__('Launch your project')}}</a>
+                <a class="btn" href="{{ route('launch.create') }}">{{__('Launch your project')}}</a>
             </div>
 
         </div>
@@ -37,7 +37,7 @@
             <div><div class="ball-bg"></div><span>{{__('Design & Development')}}</span></div>
             <div style="position: relative;overflow: hidden;" class="d-flex justify-content-end align-items-center w-100">
                 <img style="position: absolute;right: 0;bottom: -5px;right: 0;z-index:  1000;" src="{{ asset('front/images/Rocket.svg') }}" width="40px" height="40px" alt="{{__('Launch your project')}}" title="{{__('Launch your project')}}">
-                <a class="btn" href="{{ route('launch.show') }}">{{__('Launch your project')}}</a>
+                <a class="btn" href="{{ route('launch.create') }}">{{__('Launch your project')}}</a>
             </div>
 
         </div>

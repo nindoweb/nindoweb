@@ -1,18 +1,47 @@
 $(document).ready(function()
 {
-    // $(".navItem").click(function()
-    // {
-    //     if($('.navItem').hasClass('active')){
-    //         $('.navItem').removeClass('active');
-    //         $(this).addClass('active')
-    //     }else{
-    //         $('.navItem').addClass('active')
-    //         $(this).removeClass('active')
+    $('.hiringBtn').attr('disabled','disabled');
 
-    //     }    
-    // });
-    // document.getElementById('IndexSkilInfo').innerHTML = 'Using the best latest technologies, specified for IOS and Android, makes you able to rock the market through the smartphone platform. We guarantee your app will be the best in the field. Technologies we use for mobile app development:'
+    // - Noel Delgado | @pixelia_me
+    const nodes = [].slice.call(document.querySelectorAll("li"), 0);
+    const directions = { 0: "top", 1: "right", 2: "bottom", 3: "left" };
+    const classNames = ["in", "out"]
+    .map((p) => Object.values(directions).map((d) => `${p}-${d}`))
+    .reduce((a, b) => a.concat(b));
 
+    const getDirectionKey = (ev, node) => {
+    const { width, height, top, left } = node.getBoundingClientRect();
+    const l = ev.pageX - (left + window.pageXOffset);
+    const t = ev.pageY - (top + window.pageYOffset);
+    const x = l - (width / 2) * (width > height ? height / width : 1);
+    const y = t - (height / 2) * (height > width ? width / height : 1);
+    return Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
+    };
+
+    class Item {
+    constructor(element) {
+        this.element = element;
+        this.element.addEventListener("mouseover", (ev) => this.update(ev, "in"));
+        this.element.addEventListener("mouseout", (ev) => this.update(ev, "out"));
+    }
+
+  update(ev, prefix) {
+    this.element.classList.remove(...classNames);
+    this.element.classList.add(
+      `${prefix}-${directions[getDirectionKey(ev, this.element)]}`
+    );
+  }
+}
+
+
+nodes.forEach((node) => new Item(node));
+        $('*').each(function(){ 
+        var backImg;
+    
+        if ($(this).is('img')) {
+            console.log($(this).css('object-fit','cover'));
+        } 
+    });
     $("#homesection2 .item").click(function()
         {
             if($('#homesection2 .item').hasClass('active')){
@@ -91,6 +120,38 @@ $(document).ready(function(){
         // }       
 })
 
+    function upload () {
+        var name = $("input[name=name]").val();
+        var job = $("input[name=job]").val();
+        var email = $("input[name=email]").val();
+        console.log(name + '/' + job + '/' + email);
+        if(name.length > 0 && job.length > 0 && email.length > 0){
+            $('.hiringBtn').removeAttr('disabled');
+            $('.hiringBtn').css('background','#FF2D20')
+        }else{
+            $('.hiringBtn').attr('disabled','disabled');
+            $('.hiringBtn').css('background','#ffdfde')
+
+        }
+    }
+    function ChosedFile(){
+        $("input[name=file]").remove();
+        $('#HiringSection1 .parentHiring .result1').addClass('active')
+        setTimeout(() => {
+            $('#HiringSection1 .parentHiring .result1').removeClass('active')
+            $('#HiringSection1 .parentHiring .result2').addClass('active')
+        }, 3000);
+        
+    }
+    function ResumeFileChose (){
+        $('.cover').remove()
+        $("input[name=file]").click();
+
+    }
+    function sss (e){
+
+        console.log(e.target);
+    }
     function Web(){
         var servicesPost = $('#homesection3').children()
         
@@ -114,85 +175,7 @@ $(document).ready(function(){
             $(window).scrollTop(top)
         }
     }
-    function Web2(){
-        
-        // var servicesPost = $('#homesection3').children()
-        // for (let i = 0; i < servicesPost.length; i++) {
-        //     var element = servicesPost[i];
-        //     // if(servicesPost[$('#servicesItem').attr('title')].classList.contains('active')){
-        //     //     servicesPost[$('#servicesItem').attr('title')].classList.remove('active')
-        //     // }else{
-        //     //     servicesPost[$('#servicesItem').attr('title')].classList.add('active')
-        //     // }
-        //     // console.log(servicesPost[$('#servicesItem').children().attr('title') - 1]);
-        //     servicesPost[$('#servicesItem').children().attr('title')].classList.remove('show')
-        // }
-        // servicesPost[$('#servicesItem').children().attr('title') -1].classList.add('show')
-
-
-    }
-    // function Web3(){
-    //     var servicesPost = $('#homesection3').children()
-    //     for (let i = 0; i < servicesPost.length; i++) {
-    //         const element = servicesPost[i];
-    //         servicesPost[$('#servicesItem').children().attr('title')].classList.remove('show')
-    //         servicesPost[$('#servicesItem').children().attr('title')].classList.add('show')
-    //         console.log(servicesPost[$('#servicesItem').children().attr('title')]);
-    //     }
-
-    // }
-        // var oddIndex = document.getElementsByClassName('skilLogo')[0].childNodes;
-        //     for (let i = 0 ; i < oddIndex.length; i++) {
-        //         if(i % 2 != 0){
-        //             const element = oddIndex[i]
-        //             console.log(element.firstChild.title);
-        //             document.getElementsByClassName('skilLogo')[0].childNodes[i].firstChild.src = `./../images/${element.firstChild.title}.svg`
-        //         }
-        //     }
-    //     if($(window).width() < 991){
-    //         var top = $('.InfoSkil').offset().top;
-    //         $(window).scrollTop(top - 80)
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Security, agility, and stability all together mean NindoWeb’s standards. By using the latest technologies, we guarantee your website will be the best in the field. We keep improving all aspects until the best. Technologies we use for web development:'
-    //     }else{
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Security, agility, and stability all together mean NindoWeb’s standards. By using the latest technologies, we guarantee your website will be the best in the field. We keep improving all aspects until the best. Technologies we use for web development:'
-            
-    //     }        
-    // }
-
-    // function MobileApp(){
-    //     var oddIndex = document.getElementsByClassName('skilLogo')[0].childNodes;
-    //         for (let i = 0 ; i < oddIndex.length; i++) {
-    //             if(i % 2 != 0){
-    //                 const element = oddIndex[i]
-    //                 console.log(element.firstChild.title);
-    //                 document.getElementsByClassName('skilLogo')[0].childNodes[i].firstChild.src = `./../images/${element.firstChild.title}.svg`
-    //             }
-    //         }
-    //     if($(window).width() < 991){
-    //         var top = $('.InfoSkil').offset().top;
-    //         $(window).scrollTop(top - 80)
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Using the best latest technologies, specified for IOS and Android, makes you able to rock the market through the smartphone platform. We guarantee your app will be the best in the field. Technologies we use for mobile app development:'
-    //     }else{
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Using the best latest technologies, specified for IOS and Android, makes you able to rock the market through the smartphone platform. We guarantee your app will be the best in the field. Technologies we use for mobile app development:'
-    //     }
-    // }
-    // function Ui(){
-    //     var oddIndex = document.getElementsByClassName('skilLogo')[0].childNodes;
-    //         for (let i = 0 ; i < oddIndex.length; i++) {
-    //             if(i % 2 != 0){
-    //                 const element = oddIndex[i]
-    //                 console.log(element.firstChild.title);
-    //                 document.getElementsByClassName('skilLogo')[0].childNodes[i].firstChild.src = `./../images/${element.firstChild.title}.svg`
-    //             }
-    //         }
-    //     if($(window).width() < 991){
-    //         var top = $('.InfoSkil').offset().top;
-    //         $(window).scrollTop(top - 80)
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Perfect UX makes customers loyal, and precious UI makes you memorable. We’ve hard codes to evaluate the product before launching to assure everything is aligned with standards. We guarantee that Your product will be perfect. Technologies that we use for UX/UI Design: Perfect UX makes customers loyal, and precious UI makes you memorable. We’ve hard codes to evaluate the product before launching to assure everything is aligned with standards. We guarantee that Your product will be perfect. Technologies that we use for UX/UI Design:         '
-    //     }else{
-    //         document.getElementById('IndexSkilInfo').innerHTML = 'Perfect UX makes customers loyal, and precious UI makes you memorable. We’ve hard codes to evaluate the product before launching to assure everything is aligned with standards. We guarantee that Your product will be perfect. Technologies that we use for UX/UI Design: Perfect UX makes customers loyal, and precious UI makes you memorable. We’ve hard codes to evaluate the product before launching to assure everything is aligned with standards. We guarantee that Your product will be perfect. Technologies that we use for UX/UI Design:         '
-    //     }
-    // }
+    
     
     
 
