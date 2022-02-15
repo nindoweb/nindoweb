@@ -1,4 +1,4 @@
-<section id="homesection7" class="container-custom">
+<section id="homesection7" class="container">
     <div class="BlogTitle">
         <h1>
             {{__('Nindo')}} <span style="color: red;margin-left: -14px;">B</span>log

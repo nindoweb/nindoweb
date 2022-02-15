@@ -6,14 +6,16 @@
 
     <main>
 
-        <div class="container-custom d-flex flex-column justify-content-between">
+        <div class="container d-flex flex-column justify-content-between">
             <section id="teamHeader" class="d-flex flex-column">
                 <h1>
-                    {{__('Nindo')}} <span style="color: red;margin-left: -5px;">L</span>AUNCH
+                    You are about to <span style="color: red;margin-left: -5px;">L</span>AUNCH
                 </h1>
-
-                <p class="mt-3">
-                    {{__('Get to know the pros you work with.')}}
+                <h3 class="mt-1 mb-3">
+                    <!-- You better know what’s going on! -->
+                </h3>
+                <p class="mt-2">
+                    Get to know the pros you work with.
                 </p>
             </section>
             <div class="container">

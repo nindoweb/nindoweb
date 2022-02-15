@@ -3,15 +3,20 @@
 @section('title', __('Post List'))
 
 @section('content')
-    @include('front.layouts.path', [
-        'redText' => 'B',
-        'regularText' => 'log',
-        'description' => 'You better know what’s going on!',
-        //'subDescription' => 'Design, develop, test, launch just in a snap.'
-    ])
+    <section id="teamHeader" class="container d-flex flex-column">
+        <h1>
+            Nindo <span style="color: red;margin-left: -14px;">B</span>log
+        </h1>
+        <h3 class="mt-1 mb-3">
+
+        </h3>
+        <p class="mt-2">
+            You better know what’s going on!
+        </p>
+    </section>
 
     <section id="section2Blog">
-        <div class="d-flex flex-md-row flex-wrap justify-content-between container-custom flex-wrap">
+        <div class="d-flex flex-md-row flex-wrap justify-content-between container flex-wrap">
             @foreach($posts as $post)
                 <div class="blog1 d-flex flex-column">
                 <div class="item1">

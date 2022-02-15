@@ -1,4 +1,4 @@
-<section id="teamHeader" class="container-custom d-flex flex-column">
+<section id="teamHeader" class="container d-flex flex-column">
     <h1>
         {{__('Nindo')}} <span style="color: red;margin-left: -20px;">{{$redText ?? ''}}</span>{{$regularText ?? ''}}
     </h1>

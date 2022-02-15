@@ -4,7 +4,7 @@
 
 @section('content')
     <main>
-        <div class="singleBlogparent d-flex flex-column justify-content-between align-items-center container-custom">
+        <div class="singleBlogparent d-flex flex-column justify-content-between align-items-center container">
             <div id="singleBlogSection1" style="background-image: url({{ '/storage/'.$post->image }});">
             </div>
             <div id="singleBlogSection2">

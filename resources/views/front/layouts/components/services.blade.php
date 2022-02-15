@@ -12,7 +12,7 @@
     </div>
 </section>
 
-<section id="homesection3" class="container-custom servicesPost d-flex justify-content-center">
+<section id="homesection3" class="container servicesPost d-flex justify-content-center">
     <div class="tab-content" id="nav-tabContent">
         @foreach($services as $service)
             <div class="tab-pane fade @if($services->first()->id == $service->id ) show active @endif" id="nav-{{$service->code}}" role="tabpanel" aria-labelledby="nav-{{$service->code}}-tab">
@@ -22,7 +22,7 @@
                     {{__('Technologies we use for ')}}{{ $service->fullName . ':'}}
                 </span>
             </p>
-            <div class="d-flex justify-content-center flex-md-row flex-column align-items-center container-custom flex-wrap">
+            <div class="d-flex justify-content-center flex-md-row flex-column align-items-center container flex-wrap">
                 @foreach($service->technologies as $technology)
                     <div class="mx-5 my-4">
                         <img src="/storage/{{$technology->image}}" width="70px" height="70px"
