@@ -6,7 +6,7 @@
                 <a class="mx-1 mx-lg-2 @if(\Illuminate\Support\Facades\Request::route()->getName() == 'home') active @endif" href="{{ route('home') }}">{{__('Home')}}</a>
                 <a class="mx-1 mx-lg-2 @if(\Illuminate\Support\Facades\Request::route()->getName() == 'teams.index') active @endif" href="{{ route('teams.index') }}">{{__('Team')}}</a>
                 <a class="mx-1 mx-lg-2 @if(\Illuminate\Support\Facades\Request::route()->getName() == 'posts.list') active @endif" href="{{ route('posts.list') }}">{{__('Blog')}}</a>
-               <a class="mx-1 mx-lg-2 @if(\Illuminate\Support\Facades\Request::route()->getName() == 'hiring.create') active @endif" href="{{ route('hiring.create') }}">{{__('Hiring')}}</a>
+{{--               <a class="mx-1 mx-lg-2 @if(\Illuminate\Support\Facades\Request::route()->getName() == 'hiring.create') active @endif" href="{{ route('hiring.create') }}">{{__('Hiring')}}</a>--}}
             </div>
             <div class="item2 d-xl-none d-flex align-items-center px-3">
                 <img src="{{ asset('front/images/Rocket.svg') }}" height="40px" width="40px" alt="NindoWeb">
