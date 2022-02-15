@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    $('.hiringBtn').attr('disabled','disabled');
+    // $('.hiringBtn').attr('disabled','disabled');
 
     // - Noel Delgado | @pixelia_me
     const nodes = [].slice.call(document.querySelectorAll("li"), 0);
@@ -35,12 +35,12 @@ $(document).ready(function()
 
 
 nodes.forEach((node) => new Item(node));
-        $('*').each(function(){ 
+        $('*').each(function(){
         var backImg;
-    
+
         if ($(this).is('img')) {
             console.log($(this).css('object-fit','cover'));
-        } 
+        }
     });
     $("#homesection2 .item").click(function()
         {
@@ -50,7 +50,7 @@ nodes.forEach((node) => new Item(node));
             }else{
                 $('#homesection2 .item').addClass('active')
                 $(this).removeClass('active')
-            }    
+            }
         });
     $("#homesection2 .item").click(function()
     {
@@ -60,7 +60,7 @@ nodes.forEach((node) => new Item(node));
         }else{
             $('#homesection2 .item').addClass('active')
             $(this).removeClass('active')
-        }    
+        }
     });
     $('.servicesPost').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
 
@@ -104,9 +104,9 @@ $(document).ready(function(){
             $('.maniTitle').text(typedText);
             if(pos < 60){
                 if (pos < text.length) {
-                    setTimeout(typeon, delay);       
+                    setTimeout(typeon, delay);
                 }
-            }  
+            }
         }
         }
         typeon();
@@ -117,66 +117,71 @@ $(document).ready(function(){
         //     if(element>12){
         //         $('.blog1').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
         //     }
-        // }       
+        // }
 })
 
-    function upload () {
-        var name = $("input[name=name]").val();
-        var job = $("input[name=job]").val();
-        var email = $("input[name=email]").val();
-        console.log(name + '/' + job + '/' + email);
-        if(name.length > 0 && job.length > 0 && email.length > 0){
-            $('.hiringBtn').removeAttr('disabled');
-            $('.hiringBtn').css('background','#FF2D20')
-        }else{
-            $('.hiringBtn').attr('disabled','disabled');
-            $('.hiringBtn').css('background','#ffdfde')
+function upload () {
+    var name = $("input[name=name]").val();
+    var job = $("input[name=job_title]").val();
+    var email = $("input[name=email]").val();
+    console.log(name + '/' + job + '/' + email);
+    if(name.length > 0 && job.length > 0 && email.length > 0){
+        $('.hiringBtn').removeAttr('disabled');
+        $('.hiringBtn').css('background','#FF2D20')
+    }else{
+        $('.hiringBtn').attr('disabled','');
+        $('.hiringBtn').css('background','#ffdfde')
+    }
+}
 
+function hiringSubmit() {
+    ChosedFile()
+}
+
+
+function ChosedFile(){
+    $("input[name=file]").remove();
+    $('#HiringSection1 .parentHiring .result1').addClass('active')
+    setTimeout(() => {
+        $('#HiringSection1 .parentHiring .result1').removeClass('active')
+        $('#HiringSection1 .parentHiring .result2').addClass('active')
+    }, 3000);
+
+}
+
+function ResumeFileChose (){
+    $('.cover').remove()
+    $("input[name=file]").click();
+
+}
+function sss (e){
+
+    console.log(e.target);
+}
+function Web(){
+    var servicesPost = $('#homesection3').children()
+
+    for (let i = 0; i < servicesPost.length; i++) {
+        var element = servicesPost[i];
+        // console.log(element);
+        console.log(servicesPost.attr('id'));
+        if(i = servicesPost.attr('id')){
+            $(this).classList.add('show')
+            alert(1)
+            console.log($(this));
         }
-    }
-    function ChosedFile(){
-        $("input[name=file]").remove();
-        $('#HiringSection1 .parentHiring .result1').addClass('active')
-        setTimeout(() => {
-            $('#HiringSection1 .parentHiring .result1').removeClass('active')
-            $('#HiringSection1 .parentHiring .result2').addClass('active')
-        }, 3000);
-        
-    }
-    function ResumeFileChose (){
-        $('.cover').remove()
-        $("input[name=file]").click();
 
     }
-    function sss (e){
 
-        console.log(e.target);
+
+}
+function srviceScrollOnMobile(){
+    if($(window).width() < 991){
+        var top = $('#nav-tabContent').offset().top - 50;
+        $(window).scrollTop(top)
     }
-    function Web(){
-        var servicesPost = $('#homesection3').children()
-        
-        for (let i = 0; i < servicesPost.length; i++) {
-            var element = servicesPost[i];
-            // console.log(element);
-            console.log(servicesPost.attr('id'));
-            if(i = servicesPost.attr('id')){
-                $(this).classList.add('show')
-                alert(1)
-                console.log($(this));
-            }
-
-        }
+}
 
 
-    }
-    function srviceScrollOnMobile(){
-        if($(window).width() < 991){
-            var top = $('#nav-tabContent').offset().top - 50;
-            $(window).scrollTop(top)
-        }
-    }
-    
-    
-    
 
-    
+

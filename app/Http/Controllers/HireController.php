@@ -2,20 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hire;
-use Illuminate\Http\Request;
 
 class HireController extends Controller
 {
 
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
-        return view('front.hiring.create');
+        return view('hiring');
     }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Front\PostService;
+use App\Services\PostService;
 
 class SitemapController extends Controller
 {
@@ -13,7 +13,7 @@ class SitemapController extends Controller
     public function index(): \Illuminate\Http\Response
     {
         return response()
-            ->view('front.sitemap.index')
+            ->view('sitemap.index')
             ->header('Content-Type', 'text/xml');
     }
 
@@ -22,7 +22,7 @@ class SitemapController extends Controller
         $posts = $this->postService->get();
 
         return response()
-            ->view('front.sitemap.posts', compact('posts'))
+            ->view('sitemap.posts', compact('posts'))
             ->header('Content-Type', 'text/xml');
     }
 }

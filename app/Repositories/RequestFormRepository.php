@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Repositories\Front;
+namespace App\Repositories;
 
 
 use App\Models\RequestForm;
-use App\Repositories\BaseRepository;
 
 class RequestFormRepository extends BaseRepository
 {

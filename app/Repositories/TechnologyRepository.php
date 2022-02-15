@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Repositories\Front;
+namespace App\Repositories;
 
 
 use App\Models\Technology;
-use App\Repositories\BaseRepository;
 
 class TechnologyRepository extends BaseRepository
 {

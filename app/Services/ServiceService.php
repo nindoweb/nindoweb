@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Services\Front;
+namespace App\Services;
 
 
-use App\Repositories\Front\ServiceRepository;
-use App\Services\BaseService;
+use App\Repositories\ServiceRepository;
 
 class ServiceService extends BaseService
 {

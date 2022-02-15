@@ -24,9 +24,6 @@ Route::group(['prefix' => 'launch/', 'as' => 'launch.'], function () {
 
 Route::group(['prefix' => 'hiring/', 'as' => 'hiring.'], function () {
     Route::get('', [HireController::class, 'create'])->name('create');
-    Route::post('store/', [HireController::class, 'store'])
-        ->middleware('honeypot')
-        ->name('store');
 });
 
 Route::group(['prefix' => 'sitemap.xml/'], function () {

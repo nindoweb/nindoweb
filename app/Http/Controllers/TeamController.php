@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Front\UserService;
+use App\Services\UserService;
 
 class TeamController extends Controller
 {
@@ -16,6 +16,6 @@ class TeamController extends Controller
             ['team_id', '!=', null]
         ]);
 
-        return view('front.teams.index', compact('users'));
+        return view('teams', compact('users'));
     }
 }

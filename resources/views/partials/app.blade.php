@@ -11,9 +11,9 @@
     @yield('styles')
 </head>
 <body id="indexParent" class="d-flex flex-column mt-3">
-    @include('front.layouts.header')
+    @include('partials.header')
     @yield('content')
-    @include('front.layouts.footer')
+    @include('partials.footer')
     <script src="{{ asset('front/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('front/node_modules/jquery/dist/jquery.min.js') }}"></script>
     <script src='{{ asset('front/js/main.js') }}'></script>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Services\Front\PostService;
+use App\Services\PostService;
 
 class PostController extends Controller
 {
@@ -17,7 +17,7 @@ class PostController extends Controller
             ['published_at', '<', now()]
         ], with: ['user']);
 
-        return view('front.posts.post_list', compact('posts'));
+        return view('post-list', compact('posts'));
     }
 
     public function PostDetail(Post $post, $postSLug): \Illuminate\Contracts\View\View
@@ -27,6 +27,6 @@ class PostController extends Controller
             ['id', '!=', $post->id]
         ], with:['user'], perPage: 3);
 
-        return view('front.posts.post_detail', compact('post', 'posts'));
+        return view('post-detail', compact('post', 'posts'));
     }
 }

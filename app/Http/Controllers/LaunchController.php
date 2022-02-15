@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LaunchRequest;
-use App\Services\Front\RequestFormService;
+use App\Services\RequestFormService;
 
 class LaunchController extends Controller
 {
@@ -13,7 +13,7 @@ class LaunchController extends Controller
 
     public function create(): \Illuminate\Contracts\View\View
     {
-        return view('front.launch.create');
+        return view('launch-create');
     }
 
     public function store(LaunchRequest $launchRequest): \Illuminate\Http\RedirectResponse

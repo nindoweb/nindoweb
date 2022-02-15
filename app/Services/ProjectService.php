@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Services\Front;
+namespace App\Services;
 
 
-use App\Repositories\Front\ProjectRepository;
+use App\Repositories\ProjectRepository;
 use App\Services\BaseService;
 
 class ProjectService extends BaseService

@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Services\Front;
+namespace App\Services;
 
 
-use App\Repositories\Front\TechnologyRepository;
-use App\Services\BaseService;
+use App\Repositories\TechnologyRepository;
 
 class TechnologyService extends BaseService
 {

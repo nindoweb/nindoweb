@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Front\PostService;
-use App\Services\Front\ServiceService;
+use App\Services\PostService;
+use App\Services\ServiceService;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,7 @@ class HomeController extends Controller
         ], with: ['user'], perPage: 3);
         $services = $this->serviceService->getWithPaginate(with: ['technologies'], perPage: 3);
 
-        return view('front.home', compact(
+        return view('home', compact(
             'posts',
             'services'));
     }
