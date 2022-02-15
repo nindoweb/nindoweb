@@ -1,7 +1,7 @@
 <section id="homesection2" class="my-5">
-    <div class="nav nav-tabs container-custom box d-flex flex-lg-row flex-column justify-content-between align-items-center h-100" id="nav-tab" role="tablist">
+    <div class="nav nav-tabs container box d-flex flex-lg-row flex-column justify-content-between align-items-center h-100" id="nav-tab" role="tablist">
         @foreach($services as $service)
-            <div onclick="srviceScrollOnMobile()" class="nav-link item bg1 servicesItem d-flex justify-content-end flex-column @if($services->first()->id == $service->id ) active @endif"
+            <div onclick="srviceScrollOnMobile()" class="nav-link item d-flex justify-content-end flex-column @if($services->first()->id == $service->id ) active @endif"
                  id="nav-{{$service->code}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$service->code}}" type="button" role="tab"
                  aria-controls="nav-{{$service->code}}" aria-selected="true">
                 <img src="/storage/{{ $service->image }}" alt="{{ $service->name }}">
@@ -11,6 +11,7 @@
         @endforeach
     </div>
 </section>
+
 <section id="homesection3" class="container-custom servicesPost d-flex justify-content-center">
     <div class="tab-content" id="nav-tabContent">
         @foreach($services as $service)

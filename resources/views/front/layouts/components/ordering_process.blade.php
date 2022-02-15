@@ -22,9 +22,9 @@
     <div class="item-bg  d-flex d-lg-none flex-column justify-content-between">
         <div class="item1 container mb-5 d-flex align-items-center justify-content-lg-start justify-content-between">
             <div>
-                        <span>
-                            What are you going to be through?
-                        </span>
+                <span>
+                    What are you going to be through?
+                </span>
             </div>
             <div class="mx-0 my-4"><img src="{{ asset('front/images/Maze.svg') }}" width="90px" height="90px" alt="NindoWeb" title="NindoWeb"></div>
 
