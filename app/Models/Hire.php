@@ -11,6 +11,14 @@ class Hire extends Model
     use HasFactory, SoftDeletes;
 
     public $table = 'hiring';
+    protected $fillable = [
+        'name', 
+        'email', 
+        'job_title', 
+        'file', 
+        'was_seen', 
+        'status'
+    ];
 
     const STATUS_REJECT = 'REJECT';
     const STATUS_APPLY = 'APPLY';
@@ -20,6 +28,6 @@ class Hire extends Model
         'name' => ['required', 'string', 'max:255', 'min:2'],
         'email' => ['required', 'email', 'max:255', 'min:2'],
         'job_title' => ['required', 'string', 'max:255', 'min:2'],
-        'resume' => ['required', 'min:5', 'max:100', 'mimes:pdf']
+        'file' => ['required', 'min:5', 'max:100', 'mimes:pdf']
     ];
 }
