@@ -17,4 +17,11 @@ class StoreHireRequest extends FormRequest
     {
         return Hire::$rules;
     }
+
+    public function message(): \Illuminate\Http\JsonResponse
+    {
+        if($this->validator->errors()) {
+            return response()->json($this->validator->errors());
+        }
+    }
 }

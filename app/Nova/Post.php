@@ -82,6 +82,7 @@ class Post extends Resource
 
             DateTime::make(__('Published At'), 'published_at')
                 ->creationRules('required', 'after_or_equal:now')
+                ->hideWhenUpdating()
         ];
     }
 

@@ -12,11 +12,11 @@ class Hire extends Model
 
     public $table = 'hiring';
     protected $fillable = [
-        'name', 
-        'email', 
-        'job_title', 
-        'file', 
-        'was_seen', 
+        'name',
+        'email',
+        'job_title',
+        'file',
+        'was_seen',
         'status'
     ];
 
