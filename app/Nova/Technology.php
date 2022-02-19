@@ -56,12 +56,17 @@ class Technology extends Resource
                 ->creationRules('required', 'min:2', 'max:255', 'unique:technologies,title')
                 ->updateRules('required', 'min:2', 'max:255', 'unique:technologies,title,{{resourceId}}'),
 
-            BelongsTo::make(__('Service'), 'service'),
-
             Text::make(__('Slug'), 'slug')
                 ->hideWhenCreating()
                 ->hideWhenUpdating()
                 ->hideFromIndex(),
+
+            Text::make(__('Url'), 'url')
+                ->hideFromIndex(),
+
+            BelongsTo::make(__('Service'), 'service'),
+
+
 
             Trix::make(__('Content'), 'content'),
 
