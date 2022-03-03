@@ -1,6 +1,7 @@
-$(document).ready(function()
-{
-    // $('.hiringBtn').attr('disabled','disabled');
+$(document).ready(function(){
+
+   
+    $('.hiringBtn').attr('disabled','disabled');
 
     // - Noel Delgado | @pixelia_me
     const nodes = [].slice.call(document.querySelectorAll("li"), 0);
@@ -35,13 +36,10 @@ $(document).ready(function()
 
 
 nodes.forEach((node) => new Item(node));
-        $('*').each(function(){
+        $('*').each(function(){ 
         var backImg;
-
-        if ($(this).is('img')) {
-            console.log($(this).css('object-fit','cover'));
-        }
     });
+
     $("#homesection2 .item").click(function()
         {
             if($('#homesection2 .item').hasClass('active')){
@@ -50,7 +48,7 @@ nodes.forEach((node) => new Item(node));
             }else{
                 $('#homesection2 .item').addClass('active')
                 $(this).removeClass('active')
-            }
+            }    
         });
     $("#homesection2 .item").click(function()
     {
@@ -60,128 +58,158 @@ nodes.forEach((node) => new Item(node));
         }else{
             $('#homesection2 .item').addClass('active')
             $(this).removeClass('active')
-        }
+        }    
     });
-    $('.servicesPost').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
+    // $('.servicesPost').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
 
-    var postHeight = $('.servicesPost');
-    for (let post = 0; post < postHeight.length; post++) {
-        var element = postHeight[post].textContent.split("\n").length;
-        if(element>12){
-            $('.servicesPost').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
-        }
+    
+    });
+    $(window).ready(function(){
+        var pathnameLetter = window.location.pathname.toLowerCase().split('/')[1].split('.')[0];
+        document.title = "nindoWeb"+' '+pathnameLetter;
+    });
+    function changeUrl(pathname) {
+        var pathnameLetter = pathname.toLowerCase();
+        document.location.pathname = pathnameLetter+'.'+'html';
+        document.title = "nindoWeb"+' '+pathnameLetter;
     }
-});
-$(window).ready(function(){
-    var pathnameLetter = window.location.pathname.toLowerCase().split('/')[1].split('.')[0];
-    document.title = "nindoWeb"+' '+pathnameLetter;
-});
-function changeUrl(pathname) {
-    var pathnameLetter = pathname.toLowerCase();
-    document.location.pathname = pathnameLetter+'.'+'html';
-    document.title = "nindoWeb"+' '+pathnameLetter;
-}
-function goToLucnh(){
-    document.location.pathname = 'lunch'+'.'+'html';
+    function goToLucnh(){
+        document.location.pathname = 'lunch'+'.'+'html';
 
-}
-
-$(document).ready(function(){
-    var postHeight = $('.BlogItem').children();
-    for (let post = 0; post < postHeight.length; post++) {
-        var element = postHeight[post].textContent.split("\n").length;
-        if(element>3){
-            $('.BlogItem').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
-        }
     }
-        var text = $('.maniTitle').text();
-        var pos = 0;
-        var delay = 70; // milliseconds
-        function typeon() {
-        pos++;
-        var typedText = text.substr(0, pos);
-        if(pos < text.length){
-            $('.maniTitle').text(typedText);
-            if(pos < 60){
-                if (pos < text.length) {
-                    setTimeout(typeon, delay);
-                }
+
+    $(document).ready(function(){
+        
+        var postHeight = $('.BlogItem').children();
+        for (let post = 0; post < postHeight.length; post++) {
+            var element = postHeight[post].textContent.split("\n").length;
+            if(element>3){
+                $('.BlogItem').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
             }
         }
+            var text = $('.maniTitle').text();
+            var pos = 0;
+            var delay = 70; // milliseconds
+            function typeon() {
+            pos++;
+            var typedText = text.substr(0, pos);
+            if(pos < text.length){
+                $('.maniTitle').text(typedText);
+                if(pos < 60){
+                    if (pos < text.length) {
+                        setTimeout(typeon, delay);       
+                    }
+                }  
+            }
+            }
+            typeon();  
+    })
+
+    function upload () {
+        var name = $("input[name=name]").val();
+        var job = $("input[name=job]").val();
+        var email = $("input[name=email]").val();
+        var files = $('#myPdf').prop('files')[0].name;
+        if(name.length > 0 && job.length > 0 && email.length > 0 && files.length > 0){
+            $('.hiringBtn').removeAttr('disabled');
+            $('.hiringBtn').css('background','#FF2D20')
+        }else{
+            $('.hiringBtn').attr('disabled','disabled');
+            $('.hiringBtn').css('background','#ffdfde');
+            $('.hiringBtn').css('cursor','not-allowed');
         }
-        typeon();
-
-        // var postHeight = $('.blog1').children();
-        // for (let post = 0; post < postHeight.length; post++) {
-        //     var element = postHeight[post].textContent.split("\n").length;
-        //     if(element>12){
-        //         $('.blog1').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
-        //     }
-        // }
-})
-
-function upload () {
-    var name = $("input[name=name]").val();
-    var job = $("input[name=job_title]").val();
-    var email = $("input[name=email]").val();
-    console.log(name + '/' + job + '/' + email);
-    if(name.length > 0 && job.length > 0 && email.length > 0){
-        $('.hiringBtn').removeAttr('disabled');
-        $('.hiringBtn').css('background','#FF2D20')
-    }else{
-        $('.hiringBtn').attr('disabled','');
-        $('.hiringBtn').css('background','#ffdfde')
     }
-}
+    
+    function ResumeFileChose (){
+        $("input[name=file]").click();
+        if($('.cover result3').hasClass('active')){
+            $('.cover result3').removeClass('active');
+            $('.cover result1').addClass('active');
 
-function hiringSubmit() {
-    ChosedFile()
-}
-
-
-function ChosedFile(){
-    $("input[name=file]").remove();
-    $('#HiringSection1 .parentHiring .result1').addClass('active')
-    setTimeout(() => {
-        $('#HiringSection1 .parentHiring .result1').removeClass('active')
-        $('#HiringSection1 .parentHiring .result2').addClass('active')
-    }, 3000);
-
-}
-
-function ResumeFileChose (){
-    $('.cover').remove()
-    $("input[name=file]").click();
-
-}
-function sss (e){
-
-    console.log(e.target);
-}
-function Web(){
-    var servicesPost = $('#homesection3').children()
-
-    for (let i = 0; i < servicesPost.length; i++) {
-        var element = servicesPost[i];
-        // console.log(element);
-        console.log(servicesPost.attr('id'));
-        if(i = servicesPost.attr('id')){
-            $(this).classList.add('show')
-            alert(1)
-            console.log($(this));
         }
 
     }
-
-
-}
-function srviceScrollOnMobile(){
-    if($(window).width() < 991){
-        var top = $('#nav-tabContent').offset().top - 50;
-        $(window).scrollTop(top)
+    
+    function ResumeFileChoseAgain (){
+        $("input[name=file]").click();
+        upload();
     }
-}
 
+    function Web(){
+        var servicesPost = $('#homesection3').children()
+        for (let i = 0; i < servicesPost.length; i++) {
+            if(i = servicesPost.attr('id')){
+                $(this).classList.add('show')
+            }
+        }
+    }
 
+    function srviceScrollOnMobile(){
+        if($(window).width() < 991){
+            var top = $('#nav-tabContent').offset().top - 50;
+            $(window).scrollTop(top)
+        }
+    }
+  
+    $("#formSubmit").submit(function(e) { 
+        e.preventDefault();
+        
+        $('.cover .result1').removeClass('active');
+        $('.cover .result2').addClass('active');
+        $('.cover .result3').removeClass('active');
+        var form = $('#formSubmit')[0];
+        var formData = new FormData(form);
+        
+        jQuery.each(jQuery('#myPdf')[0].files, function(i, file) {
+            formData.append('file-'+i, file);
+            console.log(formData);
+            $('.hiringBtn').attr('disabled','');
+            $('.hiringBtn').css('background','#ffdfde');
 
+        });
+        async function getResponseHiring() {
+            const response = await $.ajax({
+                url: "https://nindoweb.com/api/v1/hiring", 
+                data: formData,
+                type: "POST", 
+                contentType: false,       
+                cache: false,             
+                processData: false,
+            })
+            if(response) {
+                $('.cover .result1').removeClass('active');
+                $('.cover .result2').removeClass('active');
+                $('.cover .result3').addClass('active');
+                $('.hiringBtn').attr('disabled','disabled');
+                $('.hiringBtn').css('background','#ffdfde');
+                $('#nameUser').val('');
+                $('#jobUser').val('');
+                $('#emailUser').val('');
 
+            }else{
+                $('.cover .result1').addClass('active');
+                $('.cover .result2').removeClass('active');
+                $('.cover .result3').removeClass('active');
+                $('.hiringBtn').attr('disabled','disabled');
+                $('.hiringBtn').css('background','#ffdfde');
+            }
+        }
+        getResponseHiring();
+    });
+           
+    $(document).ready(function () {
+        $('.LunchPrice .item').click(function () {
+            if($(this).hasClass('active')){
+                $('.LunchPrice .item').removeClass('active');
+                $(this).addClass('active');
+    
+            }else{
+                $('.LunchPrice .item').removeClass('active');
+                $(this).addClass('active');
+    
+            }
+        })
+            
+         
+    });
+      
