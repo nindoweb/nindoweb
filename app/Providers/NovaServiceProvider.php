@@ -8,11 +8,11 @@ use App\Nova\Metrics\RequestFormCount;
 use App\Nova\Metrics\RequestFormNoteCount;
 use App\Nova\Metrics\TagCount;
 use App\Nova\Metrics\TechnologyCount;
-use App\Nova\Post;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -24,6 +24,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Nova::createUserUsing(function($command) {
+            return [
+                $command->ask('Name'),
+                $command->ask('Email Address'),
+                $command->secret('Password'),
+            ];
+        }, function($name, $email, $password) {
+            (new User)->forceFill([
+                'name' => $name,
+                'email' => $email,
+                'password' => Hash::make($password),
+                'is_superuser' => true,
+                'is_staff' => true,
+             ])->save();
+        });
     }
 
     /**
