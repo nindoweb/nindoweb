@@ -30,8 +30,8 @@ class Technology extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function service(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function services(): \Illuminate\Database\Eloquent\Relations\belongsToMany
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsToMany(Service::class);
     }
 }

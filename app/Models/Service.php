@@ -28,8 +28,8 @@ class Service extends Model
         return $this->name.' '.$this->sub_name;
     }
 
-    public function technologies(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function technologies(): \Illuminate\Database\Eloquent\Relations\belongsToMany
     {
-        return $this->hasMany(Technology::class);
+        return $this->belongsToMany(Technology::class);
     }
 }

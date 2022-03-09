@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -64,9 +64,7 @@ class Technology extends Resource
             Text::make(__('Url'), 'url')
                 ->hideFromIndex(),
 
-            BelongsTo::make(__('Service'), 'service'),
-
-
+            BelongsToMany::make(__('Services'), 'services'),
 
             Trix::make(__('Content'), 'content'),
 
