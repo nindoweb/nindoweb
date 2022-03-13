@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\LaunchController;
-use App\Http\Controllers\Front\PostController;
-use App\Http\Controllers\Front\SitemapController;
-use App\Http\Controllers\Front\TeamController;
+use App\Http\Controllers\HireController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LaunchController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -15,10 +16,14 @@ Route::group(['prefix' => 'posts/', 'as' => 'posts.'] , function () {
 });
 
 Route::group(['prefix' => 'launch/', 'as' => 'launch.'], function () {
-    Route::get('', [LaunchController::class, 'show'])->name('show');
+    Route::get('', [LaunchController::class, 'create'])->name('create');
     Route::post('store/', [LaunchController::class, 'store'])
         ->middleware('honeypot')
         ->name('store');
+});
+
+Route::group(['prefix' => 'hiring/', 'as' => 'hiring.'], function () {
+    Route::get('', [HireController::class, 'create'])->name('create');
 });
 
 Route::group(['prefix' => 'sitemap.xml/'], function () {

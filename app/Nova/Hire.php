@@ -2,32 +2,30 @@
 
 namespace App\Nova;
 
-use App\Nova\Metrics\PostCount;
+use App\Models\Hire as HireModel;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Slug;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 
-class Post extends Resource
+
+class Hire extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\Hire::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'email';
 
     /**
      * The columns that should be searched.
@@ -35,8 +33,28 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'title'
+        'email', 'job_title',
     ];
+
+    /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('Hiring');
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('Hire');
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -47,42 +65,37 @@ class Post extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable()->hideFromIndex(),
+            ID::make(__('ID'), 'id')->sortable(),
 
-            Image::make(__('Image'), 'image')
-                ->disk('public')
-                ->creationRules('required', 'max:5000', 'min:50')
-                ->prunable(),
-
-            BelongsTo::make(__('Category'), 'category'),
-
-            Text::make(__("Title"), 'title')
-                ->creationRules(\App\Models\Post::$rules['title'])
-                ->updateRules('required', 'unique:posts,title,{{resourceId}}'),
-
-            Slug::make(__('Slug'), 'slug')
-                ->from('title')
-                ->hideFromIndex()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-
-            Text::make(__('Code'), 'code')
+            Text::make(__('Name'), 'name')
                 ->hideWhenCreating()
                 ->hideWhenUpdating()
-                ->hideFromIndex()
-                ->exceptOnForms(),
+                ->required(),
 
-            BelongsTo::make(__('User'), 'user')
+            Text::make(__('Email'), 'email')
                 ->hideWhenCreating()
-                ->hideWhenUpdating(),
-
-            BelongsToMany::make(__("Tags"), 'tags'),
-
-            Trix::make(__('Content'), 'content'),
-
-            DateTime::make(__('Published At'), 'published_at')
-                ->creationRules('required', 'after_or_equal:now')
                 ->hideWhenUpdating()
+                ->required(),
+
+            Text::make(__('Job title'), 'job_title')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->required(),
+
+            File::make(__('File'), 'file')
+                ->hideWhenCreating()
+                ->hideWhenUpdating()
+                ->required(),
+
+            Boolean::make(__("Was seen"), 'was_seen')
+                ->hideWhenCreating(),
+
+            Select::make(__('Status'), 'status')
+                ->options([
+                    HireModel::STATUS_APPLY => __('Apply'),
+                    HireModel::STATUS_ACCEPTED => __('Accepted'),
+                    HireModel::STATUS_REJECT => __('Reject'),
+                ])->required()
         ];
     }
 
@@ -94,9 +107,7 @@ class Post extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            new PostCount()
-        ];
+        return [];
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -64,7 +64,7 @@ class Service extends Resource
                 ->hideWhenUpdating()
                 ->hideFromIndex(),
 
-            HasMany::make(__('Technologies'), 'technologies'),
+            BelongsToMany::make(__('Technologies'), 'technologies'),
 
             Trix::make(__('Content'), 'content')
                 ->rules('nullable'),

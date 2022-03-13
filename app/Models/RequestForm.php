@@ -13,6 +13,12 @@ class RequestForm extends Model
 
     protected $fillable = ['email', 'company', 'description'];
 
+    public static array $rules = [
+        'email' => ['required', 'email','min:2', 'max:255'],
+        'company' => ['required', 'string', 'min:2', 'max:255'],
+        'description' => ['string', 'max:4000']
+    ];
+
     public function requestFormNotes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(RequestFormNote::class);

@@ -13,21 +13,24 @@ class ServiceSeeder extends Seeder
         $data = [
             [
                 'id' => 1,
-                'name' => 'Web Development',
+                'name' => 'Web',
+                'sub_name' => 'Development',
                 'image' => 'not found',
                 'code' => uniqid(),
                 'content' => ''
             ],
             [
                 'id' => 2,
-                'name' => 'Mobile App Development',
+                'name' => 'Mobile App',
+                'sub_name' => 'Development',
                 'image' => 'not found',
                 'code' => uniqid(),
                 'content' => ''
             ],
             [
                 'id' => 3,
-                'name' => 'Ux/Ui Design',
+                'name' => 'Ux/Ui',
+                'sub_name' => 'Design',
                 'image' => 'not found',
                 'code' => uniqid(),
                 'content' => ''

@@ -1,0 +1,21 @@
+<?php
+
+
+namespace App\Repositories;
+
+
+use App\Models\Service;
+
+class ServiceRepository extends BaseRepository
+{
+
+    public function getFieldsSearchable(): array
+    {
+        return [];
+    }
+
+    public function model(): string
+    {
+        return Service::class;
+    }
+}
