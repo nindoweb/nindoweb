@@ -60,8 +60,6 @@ nodes.forEach((node) => new Item(node));
             $(this).removeClass('active')
         }    
     });
-    // $('.servicesPost').children()[post].getElementsByClassName('heightPost')[0].classList.add("bottom-overflow-fade")
-
     
     });
     $(window).ready(function(){
@@ -104,15 +102,21 @@ nodes.forEach((node) => new Item(node));
             }
             typeon();  
     })
+    
 
     function upload () {
         var name = $("input[name=name]").val();
         var job = $("input[name=job]").val();
         var email = $("input[name=email]").val();
         var files = $('#myPdf').prop('files')[0].name;
-        if(name.length > 0 && job.length > 0 && email.length > 0 && files.length > 0){
+        var emailLunch = $("input[name=emailLunch]").val();
+        var company = $("input[name=company]").val();
+        var textAria = $("#textAria").val();
+        console.log(company);
+        if((name.length > 0 && job.length > 0 && email.length > 0 && files.length > 0) || (emailLunch.length > 0 && company.length > 0 && textAria.length > 0)){
             $('.hiringBtn').removeAttr('disabled');
             $('.hiringBtn').css('background','#FF2D20')
+
         }else{
             $('.hiringBtn').attr('disabled','disabled');
             $('.hiringBtn').css('background','#ffdfde');
@@ -196,8 +200,10 @@ nodes.forEach((node) => new Item(node));
         }
         getResponseHiring();
     });
-           
+    
     $(document).ready(function () {
+        
+              
         $('.LunchPrice .item').click(function () {
             if($(this).hasClass('active')){
                 $('.LunchPrice .item').removeClass('active');
@@ -212,4 +218,13 @@ nodes.forEach((node) => new Item(node));
             
          
     });
+
+    $(document).ready(function () {
+        var offset = $('#homesection3').offset().top ;
+        $('#homesection2 .item').click(function() {
+            window.scrollTo(offset,offset)
+        }) 
+    });
+
+
       

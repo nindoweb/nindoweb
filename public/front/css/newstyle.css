@@ -2,27 +2,25 @@
 @font-face {
     font-family: nd;
     src: url(./../font/GothamBook.ttf);
-    /* font-weight: bold; */
+}
+@font-face {
+    font-family: ndb-regular;
+    src: url(./../font/GothamBook.ttf);
 }
 @font-face {
     font-family: ndb;
-    src: url(./../font/GothamBold.ttf);
+    src: url(./../font/Gotham-Black.otf);
 }
 *{
     box-sizing: border-box;
+    font-family: ndb;
     padding: 0;
     margin: 0;
     font-weight: 400;
 }
-h1 , h3 {
-    font-family: ndb;
-}
 body{
     --inv: red;
-
-    }
-
-
+}
 input:focus-visible {
     background: #fff !important;
     color: #000;
@@ -65,82 +63,6 @@ input:-webkit-autofill:active{
 .btn:hover:after {
 	background: var(--inv);
 	transition-delay: .35s;
-}
-
-/* From Top */
-
-.from-top:before, 
-.from-top:after {
-	left: 0;
-	height: 0;
-	width: 100%;
-}
-
-.from-top:before {
-	bottom: 0;	
-	border: 1px solid var(--inv);
-	border-top: 0;
-	border-bottom: 0;
-}
-
-.from-top:after {
-	top: 0;
-	height: 0;
-}
-
-.from-top:hover:before,
-.from-top:hover:after {
-	height: 100%;
-}
-
-/* From Left */
-
-.from-left:before, 
-.from-left:after {
-	top: 0;
-	width: 0;
-	height: 100%;
-}
-
-.from-left:before {
-	right: 0;
-	border: 1px solid var(--inv);
-	border-left: 0;
-	border-right: 0;	
-}
-
-.from-left:after {
-	left: 0;
-}
-
-.from-left:hover:before,
-.from-left:hover:after {
-	width: 100%;
-}
-
-/* From Right */
-
-.from-right:before, 
-.from-right:after {
-	top: 0;
-	width: 0;
-	height: 100%;
-}
-
-.from-right:before {
-	left: 0;
-	border: 1px solid var(--inv);
-	border-left: 0;
-	border-right: 0;	
-}
-
-.from-right:after {
-	right: 0;
-}
-
-.from-right:hover:before,
-.from-right:hover:after {
-	width: 100%;
 }
 
 /* From center */
@@ -229,13 +151,12 @@ input:-webkit-autofill:active{
     border: 1px solid #FF2D20;
     border-radius: 5px;
 }
+
 #navBar .item1 a{
     color: #5C5C5C;
     font-size: 17px;
-    font-family: ndb;
-    padding: 15px 0;
-    letter-spacing: normal;
-
+    
+    padding: 12px 0;
 }
 #navBar .item1 a.active{
     border-bottom: 3px solid #FF2D20;
@@ -245,7 +166,6 @@ input:-webkit-autofill:active{
 }
 #navBar .item2 {
     width: 19%;
-    /* min-width: 230px; */
     height: 45px;
     background: #FF2D20;
     border-radius: 5px;
@@ -259,10 +179,9 @@ input:-webkit-autofill:active{
 }
 #navBar .item2 a {
     color: #fff;
-    font-size: 18px;
-    padding-top: 10px;
+    font-size: 17px;
     letter-spacing: normal;
-    font-family: ndb;
+    
 }
  /* header global css end */
 
@@ -270,25 +189,23 @@ input:-webkit-autofill:active{
     width: 100%;
     height: 204px;
     margin: 130px auto 80px auto;
-    font-family: ndb;
+    
 
 }
 .singleLeter{
     color: #ff2c1f;
     font-size: 64px;
-    font-family: ndb;
+    
     margin-left: -20px;
 }
 .singleLeterLunch{
     color: #ff2c1f;
     font-size: 100px ;
     margin-left: -40px;
-    font-family: ndb;
+    
 }
 #teamHeader h1{
   font-size: 64px !important;
-  font-family: ndb !important;
-  letter-spacing: -1px;
   color: #5C5C5C;
   height: fit-content;
 }
@@ -297,27 +214,23 @@ input:-webkit-autofill:active{
   font-size: 36px !important;
   margin-top: -10px !important;
   margin-bottom: 35px !important;
-  letter-spacing: -1px;
-  font-family: ndb;
+  
   color: #5C5C5C;
   height: fit-content;
 }
 #teamHeader p {
   font-size: 24px !important;
-  font-family: ndb;
-  /* letter-spacing: -1px; */
   color: #939393;
   height: fit-content;
 }
 #teamHeader #LunchTitleHeader{
     font-size: 80px !important;
-    font-family: ndb !important;
     color: #5C5C5C;
     line-height: 90px;
 }
 #teamHeader #LunchTitleHeader span{
     font-size: 80px !important;
-    font-family: ndb !important;
+    
     margin-left: -25px;
 }
 
@@ -361,32 +274,29 @@ input:-webkit-autofill:active{
 #homesection2 p.abov1{
     position: absolute;
     display: block;
-    top: 15px;
+    top: 0px;
     left: 15px;
-    font-size: 48px;
-    font-family: ndb;
+    font-size: 44px;
     color: #fff;
     z-index: 1000000000000;
 }
 #homesection2 p.abov2{
     position: absolute;
     display: block;
-    top: 65px;
+    top: 55px;
     left: 15px;
-    font-size: 36px;
-    font-family: ndb;
+    font-size: 34px;
+    
     color: #fff;
     z-index: 1000000000000;
 }
 #homesection2 .item:hover {
-    /* padding:0; */
     background: none;
 }
 #homesection2 .item.active {
     width: 30%;
     transform: translate(0px,80px);
     height:190px;
-    /* padding:0; */
     background: none;
 }
 #homesection3 {
@@ -399,15 +309,13 @@ input:-webkit-autofill:active{
 }
 #homesection3 p {
     color: #5C5C5C !important;
-    font-family: ndb;
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 44.21px;
     overflow: hidden;
-    height: 120px;
-    min-height: 120px;
-    max-height: 120px;
-    /* letter-spacing: -1px; */
+    height: 130px;
+    min-height: 130px;
+    max-height: 130px;
 }
 #IndexBloghomeSection3{
     width: 100%;
@@ -448,11 +356,12 @@ input:-webkit-autofill:active{
     color: #fff;
     margin-top: 100px;
     padding-bottom: 60px;
+    padding-left: 10px;
 }
 #homesection6 .item-bg .item1{
     width: 100%;
     font-size: 36px;
-    font-family: ndb;    
+        
 }
 #homesection6 .item-bg .item1 img {
     margin-right: 10px;
@@ -464,7 +373,7 @@ input:-webkit-autofill:active{
     height: 50px;
     margin: 0 auto;
     font-size: 18px;
-    font-family: ndb;
+    
     max-width: 1280px;
 }
 #homesection6 .item-bg .item2 span{
@@ -472,7 +381,7 @@ input:-webkit-autofill:active{
     z-index: 2;
     left: 0px;
     font-size: 24px;
-    font-family: ndb;
+    
     height: 50px;
 }
 #homesection6 .item-bg .item2 .ball-bg{
@@ -500,7 +409,7 @@ input:-webkit-autofill:active{
     border-bottom-left-radius: 0;
     background: #ff2c1f;
     color: #fff;
-    font-family: ndb;
+    
     transition: 0.2s;
     font-size: 24px;
     padding: 0; 
@@ -510,15 +419,14 @@ input:-webkit-autofill:active{
 }
 .homeServiseBackground {
     color: #5c5c5ca6;
-    /* letter-spacing: -1px; */
-    font-family: ndb;
+    font-family: ndb;    
 }
 #homesection7{
     width:  100%;
 }
 #homesection7 h1{
     font-size: 64px !important;
-    font-family: ndb;
+    
     font-weight: bolder;
     color: #5C5C5C;
 }
@@ -528,12 +436,12 @@ input:-webkit-autofill:active{
     color: #5C5C5C;
 }
 #homesection7 .BlogTitle {
-    margin: 100px 0 60px 0;
+    margin: 90px 0 60px 0;
 
 }
 #homesection7 .BlogTitle p {
     font-size: 24px !important;
-    font-family: ndb;
+    
     letter-spacing: normal;
     color: #939393;
 }
@@ -582,7 +490,6 @@ input:-webkit-autofill:active{
     display: flex;
     line-height: 32px;
     align-items: flex-start;
-    font-family: ndb;
     letter-spacing: normal;
     color: #5C5C5C;
     margin: 25px 0 0px 0;
@@ -591,9 +498,7 @@ input:-webkit-autofill:active{
 #homesection7 .BlogItem .posts p {
     color: #5C5C5C;
     font-size: 12px;
-    margin: 15px 0 20px 0;
-    letter-spacing: normal;
-    font-family: ndb;
+    margin: 0 0 20px 0;
     line-height: 2;
     height: 140px;
     overflow: hidden;
@@ -602,7 +507,7 @@ input:-webkit-autofill:active{
     color: #FF2D20;
     border: 1px solid #FF2D20;
     border-radius: 5px;
-    font-family: ndb;
+    
     font-size: 16px;
     display: flex;
     justify-content: center;
@@ -619,9 +524,7 @@ input:-webkit-autofill:active{
 }
 #IndexBlogSection3 {
     font-size: 12px;
-    /* letter-spacing: 0 !important; */
-    color: #5C5C5C;
-    font-family: ndb;
+    color: #5C5C5C;    
     width: 100%;
     padding: 0 2px;
     border-top: 1px solid #000;
@@ -629,9 +532,6 @@ input:-webkit-autofill:active{
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
-}
-#IndexBlogSection3 span {
-    font-family: ndb;
 }
 #IndexBlogSection3 img {
     margin-bottom:8px ;
@@ -655,6 +555,7 @@ input:-webkit-autofill:active{
     border-radius: 5px;
     width: 100%;
     height: 100%;
+    margin-bottom: 7px;
 }
 #section2Blog .blog1 .item1 {
     width: 100%;
@@ -709,19 +610,16 @@ input:-webkit-autofill:active{
 #singleBlogSection2 p{
   font-size: 50px;
   color: #5C5C5C;
-  font-weight: bold;
   text-align: left;
   width: 100%;
 }
 #singleBlogSection3 {
     width: 100%;
-    margin-bottom: 20px;
 }
 #singleBlogSection3 span {
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 11px;
     color: #5C5C5C;
-    margin: 10px 25px 40px 0px;
+    margin: 0px 25px 30px 0px;
 }
 #singleBlogSection3 img {
     width: 15px;
@@ -736,8 +634,9 @@ input:-webkit-autofill:active{
     text-align: left;
     line-height: 2;
 }
-#singleBlogSection4 p {
+#singleBlogSection4 p , #singleBlogSection4 div {
     font-size: 15px;
+    font-family: ndb-regular;
 }
 #singleBlogSection5{
     width: 100%;
@@ -753,11 +652,11 @@ input:-webkit-autofill:active{
 #LunchSection-1 legend{
     position: absolute;
     z-index: 2;
-    top: -5px;
+    top: -10px;
     padding: 0 10px;
     left: 10px;
     font-size: 16px;
-    font-family: ndb;
+    
     color: #939393;
     background: #fff;
     height: fit-content;
@@ -775,7 +674,6 @@ input:-webkit-autofill:active{
     font-size: 16px;
     letter-spacing: 1px;
     color: #000 !important;
-    /* font-family: nd; */
     margin-bottom: 60px;
     border-radius: 5px;
     border: 1px solid #FF2D20;
@@ -793,7 +691,6 @@ input:-webkit-autofill:active{
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
-    font-weight: bold;
 }
 #LunchSection-1 button:focus-visible{
     outline: none;
@@ -804,11 +701,10 @@ input:-webkit-autofill:active{
 #LunchSection-1 .textAria p {
     position: absolute;
     z-index: 2;
-    top: -5px;
+    top: -10px;
     padding: 0 10px;
     left: 10px;
     font-size: 16px;
-    font-family: ndb;
     color: #939393;
     background: #fff;
     height: fit-content;
@@ -816,16 +712,13 @@ input:-webkit-autofill:active{
     margin-bottom: 0;
 }
 
-#userName{
-    left: 20px !important;
 
-}
 #LunchSection-1 textarea {
     width: 100%;
     margin: 0px 0px 60px 0px;
     border-radius: 5px;
     height: 200px;
-    padding: 10px 30px;
+    padding: 20px;
     transition: 0.2s;
     border: 1px solid #FF2D20;
 
@@ -834,34 +727,30 @@ input:-webkit-autofill:active{
     box-shadow: 0 10px 10px rgba(0,0,0,0.4);
     outline: none;
 }
-.LunchPrice {
+#LunchSection-1 .LunchPrice {
     margin: -10px 0 40px 0;
 }
-.LunchPrice .item {
+#LunchSection-1 .LunchPrice label.item {
     background: #FFE9E9;
     border-radius: 5px;
-    color: #FF2D20;
-    font-family: ndb;
+    color: #FF2D20 !important;
     height: 65px;
     width: 23%;
     cursor: pointer;
     transition: 0.2s;
 }
-.LunchPrice .item:hover {
+#LunchSection-1 .LunchPrice label.item:hover {
     transform: scale(1.02);
-    transform: translateY(10px);
-    background: #FF2D20;
-    color: #FFE9E9;
+    background: #ff0d00 !important;
+    color: #FFE9E9 !important;
 
 }
-.LunchPrice .item.active{
-    background: #FF2D20;
-    color: #FFE9E9;
+#LunchSection-1 .LunchPrice label.item.active{
+    background: #FF2D20 !important;
+    color: #FFE9E9 !important;
 }
 .lunchSubmmitBtn button{
-    font-family: ndb;
     font-size: 21px !important;
-    padding-top: 15px;
     transition: 0.2s;
 }
 .lunchSubmmitBtn button:hover {
@@ -872,7 +761,6 @@ input:-webkit-autofill:active{
 }
 #teamSection1 {
     width: 100%;
-    /* height: fit-content; */
     margin-bottom: 460px;
 }
 #teamSection1 .item{
@@ -894,7 +782,6 @@ input:-webkit-autofill:active{
 }
 #teamSection1 .person1:hover {
     transform: scale(1.02)
-    translate(5px)
 }
 #teamSection1 .person2 {
   height: 400px;
@@ -905,7 +792,6 @@ input:-webkit-autofill:active{
 }
 #teamSection1 .person2:hover {
   transform: scale(1.02)
-  translate(5px)
 }
 #teamSection1 .person3 {
   height: 400px;
@@ -916,18 +802,17 @@ input:-webkit-autofill:active{
 }
 #teamSection1 .person3:hover {
   transform: scale(1.02)
-  translate(5px)
 }
 #teamSection1 .name {
   font-size: 21px;
   margin-top:30px;
-  font-family: ndb;
+  
   color: #5C5C5C;
 }
 #teamSection1 .title {
   font-size: 15px;
   margin-top:10px;
-  font-family: ndb;
+  
   color: #FF2D20;
 }
 #HiringSection1 {
@@ -937,34 +822,37 @@ input:-webkit-autofill:active{
 
 }
 #HiringSection1 .parentHiring fieldset {
-    width: 48%;
+    width: 49.5%;
+    transition: 0.3s;
+
 }
 #HiringSection1 .parentHiring fieldset input {
     width: 100%;
     padding: 18px 30px;
     border: 1px solid #FF2D20;
     border-radius: 5px;
-    /* margin-right: 15px; */
     margin-bottom: 60px;
+    letter-spacing: 1px;
 }
 #HiringSection1 .parentHiring fieldset input:focus-visible {
     box-shadow: 0 10px 15px rgba(0,0,0,0.4);
 }
+ 
 #HiringSection1 .parentHiring fieldset legend {
     position: absolute;
     width: fit-content;    
-    left: 20px;
+    left: 10px ;
+    top: -10px;
     color: #939393;
     font-size: 16px;
-    font-family: ndb;
-    top: -5px;
     background: #fff;
-    padding: 0 10px;
+    display: flex;
+    align-items: center;
 }
 #HiringSection1 .parentHiring .jobOffer {
-    width: 73%;
+    width: 76%;
 }
-#HiringSection1 .btn button {
+.btn button {
     width: 23%;
     height: 65px;
     background: #ffdfde;
@@ -973,15 +861,13 @@ input:-webkit-autofill:active{
     border-radius: 5px;
     border: none;
     font-size: 24px;
-    padding-top: 15px;
-    font-family: ndb;
+    
     transition: 0.2s;
 }
 #HiringSection1 .parentHiring .result {
     width: 23%;
     height: 65px;
     background: #fff !important;
-    border: 1px solid #FF2D20 !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -990,7 +876,6 @@ input:-webkit-autofill:active{
     color: #FF2D20;
     border-radius: 5px;
     margin: -20px 0 30px 0;
-    border: none;
 }
 #HiringSection1 .parentHiring .result.cover {
     position: absolute;
@@ -1004,11 +889,8 @@ input:-webkit-autofill:active{
 
 
 input#myPdf {
-    /* position: absolute; */
-    /* z-index: 1; */
     display: none;
     width: 0;
-    /* padding: 65px 0 0 0; */
     height: 0px;
     background: transparent;
     border-radius: 20px;
@@ -1021,48 +903,42 @@ input#myPdf {
 
 #HiringSection1 .parentHiring .result span {
     font-size: 18px;
-    font-family: ndb;
+    
     font-weight: 900;
     color: #FF2D20;
-    padding-top: 4px;
 }
 #HiringSection1 .parentHiring .result p{
     font-size: 12px;
     font-family: nd;
     font-weight: 900;
     color: #FF2D20;
-    padding-top: 4px;
 
 }
 #HiringSection1 .parentHiring .result2 .uploading {
     color: #939393;
     font-size: 18px;
     font-family: ndb;
-    width: 50%;
-    padding-top: 12px;
+    border: none;
 }
 
 #HiringSection1 .parentHiring .result3 .uploaded {
     color: #28A745;
     font-size: 18px;
-    font-family: ndb;
-    height: 46px;
-    width: 50%;
+    display: flex;
+    align-items: center;
+    width: 58%;
+    border: none;
     border-right: 1px solid #FF2D20;
 }
-#HiringSection1 .parentHiring .result3 .uploaded img {
-    margin-bottom: 12px;
-}
+
 #HiringSection1 .parentHiring .result .changeFile {
     color: #FF2D20;
     font-size: 12px;
     font-family: ndb;
-    width: 50%;
+    width: 40%;
 }
 #HiringSection1 .parentHiring .btn {
     width: 100%;
-    margin-top: 50px;
-
 }
 #HiringSection1 .parentHiring .result1,#HiringSection1 .parentHiring .result2,#HiringSection1 .parentHiring .result3 {
     display: none !important;
@@ -1071,18 +947,26 @@ input#myPdf {
     display: flex !important;
     width: 100%;
     margin-top: 0;
-    border: transparent !important;
 
 }
 #HiringSection1 .parentHiring .result2.active{
     display: flex !important;
     width: 100%;
     margin-top: 0;
+    direction: rtl;
+    margin-bottom: 0;
+    border: none !important;
+    font-family: ndb;
+    align-items: center;
 }
 #HiringSection1 .parentHiring .result3.active{
     display: flex !important;
     width: 100%;
     margin-top: 0;
+    margin-bottom: 0;
+    border: none !important;
+    font-family: ndb;
+    align-items: center;
 }
 
 .loader {
@@ -1135,7 +1019,6 @@ input#myPdf {
     align-items: center;
     background: #fff;
     border: none;
-    margin-top: -32px;
     border-radius: 5px;
     width: 450px;
     max-width: 450px;
@@ -1152,7 +1035,7 @@ input#myPdf {
 .foterLunch a{
     color: #FF2D20;
     font-size: 34px;
-    font-family: ndb;
+    
 }
 @media (max-width: 1400px) {
     #homesection6 .item-bg .item2 span{
@@ -1210,42 +1093,41 @@ input#myPdf {
         width: 31%;
     }
     #HiringSection1 .parentHiring .jobOffer{
-     width: 65% ;
+     width: 69% ;
     }
     #HiringSection1 .parentHiring .result {
         width: 31%;
         
     }
-    #navBar .item2 a{
-        padding-top: 23px !important;
+    #HiringSection1 .parentHiring .result.cover{
+        width: 30%;
     }
 }
 @media  (max-width: 991px) {
     #homesection6 .item-bg .item2 span{
         font-size: 20px;
     }
-    #userName{
-        left: 8px !important;
     
-    }
     #homesection6 .item-bg .item2 div:last-child{
-        width: 310px;
+        width: 350px;
         height: 50px;
         font-size: 24px;
         margin: 0;
 
 
     }
-    
+    #HiringSection1 .parentHiring .btn {
+        width: 100%;
+        margin-top: 50px;
+    }
     #homesection6 .item-bg .item2 div:last-child a{
-        width: 310px;
+        width: 350px;
         height: 50px;
     }
     .container-custom-header {
         width: 100%;
         max-width: 768px;
         margin: 0 auto;
-        /* padding: 0 15px; */
     }
     .singleLeterLunch {
         margin-left: 0px !important;
@@ -1255,12 +1137,10 @@ input#myPdf {
     }
     #HiringSection1 .parentHiring fieldset {
         width: 100%;
-        /* height: 65px; */
     }
     #HiringSection1 .parentHiring button {
         width: 100%;
         height: 65px;
-        background: #FF2D20;
         color: #fff;
         border-radius: 5px;
         border: none;
@@ -1271,12 +1151,11 @@ input#myPdf {
         width: 100%;
         height: 65px;
         background: #fff;
-        border: 1px solid #FF2D20 !important;
         border-radius: 5px;
         color: #fff;
         border-radius: 5px;
         border: none;
-        /* margin: 40px auto 80px auto; */
+        margin: 0;
     }
     #homesection2 .item {
         width: 90%;
@@ -1287,8 +1166,9 @@ input#myPdf {
 
     }
     #homesection3 p {
-        height: auto;
-        max-height: 250px;
+        height: 100%;
+        min-height: 260px;
+        max-height: 450px;
         margin-bottom: 50px;
     }
     #homesection6 .item-bg .item2 .ball-bg{
@@ -1303,7 +1183,6 @@ input#myPdf {
     }
     #homesection2 {
         height: 100%;
-        /* padding: 15px 30px; */
     }
     #homesection2 .item.active {
         width: 97%;
@@ -1329,7 +1208,6 @@ input#myPdf {
     }
     #homesection6 .item-bg .item2{
         position: relative;
-        /* width: 83%; */
         height: 500px;
         margin: 0 auto;
         font-size: 15px;
@@ -1384,7 +1262,7 @@ input#myPdf {
     #HiringSection1 .parentHiring .result.cover {
         position: relative;
         right: 0;
-        top: 20px;
+        top: 0px;
         border: 1px solid #FF2D20 !important;
         width: 100%;
         height: 65px;
@@ -1392,26 +1270,20 @@ input#myPdf {
         z-index: 2;
     }
     #HiringSection1 .parentHiring fieldset legend{
-        left: 8px;
+        left: 14px;
     }
     #teamHeader{
         margin: 130px auto 80px auto;
     }
     #teamHeader h3 {
         font-size: 35px !important;
-        margin-top: 0;
     }
-    #navBar .item1 a{
-        padding-top: 15px !important;
-    }
-    #navBar .item2 a{
-        padding-top: 23px !important;
-    }
+    
     #homesection7{
         margin: 60px auto 0 auto;
     }
-    .LunchPrice .item {
-        width: 45%;
+    #LunchSection-1 .LunchPrice label.item {
+        width: 47%;
         margin: 15px 0;
     }
     .lunchSubmmitBtn button{
@@ -1420,7 +1292,10 @@ input#myPdf {
     }
     .FooterGoal {
         width: 100%;
-        max-width: 410px;
+        max-width: 340px;
+    }
+    #HiringSection1 .parentHiring .result3 .uploaded {
+        border-right: none;
     }
 }
 @media  (max-width: 768px) {
@@ -1464,11 +1339,9 @@ input#myPdf {
     }
     #navBar .item2 a{
         font-size: 14px !important;
-        padding-top: 23px !important;
     }
     #navBar .item1 a{
         font-size: 14px;
-        padding: 15px 0;
     }
     #navBar .item2 img{
         width: 35px;
@@ -1477,7 +1350,6 @@ input#myPdf {
     #homesection7 .BlogItem .posts {
         width: 100%;
         height: auto;
-        /* margin: 40px 0; */
     }
     #homesection7 .BlogItem .posts .img{
         min-width: 100%;
@@ -1525,10 +1397,8 @@ input#myPdf {
         height: 35px;
     }
     #navBar .item2{
-        width: 140px;
-        padding: 5px !important;
+        width: 160px;
         height: 35px;
-
     }
     #navBar .item1{
         height: 35px;
@@ -1536,11 +1406,10 @@ input#myPdf {
     }
     #navBar .item2 a{
         font-size: 13px;
-        padding-top: 18px !important;
     }
     #navBar .item1 a{
         font-size: 13px;
-        padding: 11px 0;
+        padding: 8px 0;
     }
     #navBar .item1 img{
         width: 40px;
@@ -1552,7 +1421,10 @@ input#myPdf {
         height: 30px;
         right: -3px;
     }
-    
+    #LunchSection-1 .LunchPrice label.item {
+        font-size: 14px;
+    }
+
     
 }
 @media (max-width: 480px){
@@ -1563,8 +1435,7 @@ input#myPdf {
         font-size: 30px;
     }
     #navBar .item2{
-        width: 120px;
-        padding: 5px !important;
+        width: 140px;
         height: 35px;
 
     }
@@ -1573,7 +1444,7 @@ input#myPdf {
     }
     #navBar .item1 a{
         font-size: 10px !important;
-        padding: 11px 0;
+        padding: 9px 0;
     }
     #section2Blog .blog1 {
         height: 100%;
@@ -1598,19 +1469,36 @@ input#myPdf {
         width: 48px;
         height: 48px;
     }
-    .LunchPrice .item {
+    #LunchSection-1 .LunchPrice label.item {
         font-size: 14px;
+        width: 100%;
     }
+    #homesection6 .item-bg .item2 div:last-child{
+        width: 320px;
+    }
+    #homesection6 .item-bg .item2 div:last-child a{
+        width: 320px;
+    }
+
+
 }
 @media (max-width: 420px){
     #navBar .item2{
-        width: 110px;
-        padding: 5px !important;
+        width: 130px;
         height: 35px;
-
-    }
-    .LunchPrice .item {
-        font-size: 12px;
     }
 }
 
+
+
+
+.filter-switch label {
+    cursor: pointer;
+  }
+  .filter-switch-item input:checked + label {
+    color: inherit;
+  }
+  .filter-switch-item input:not(:checked) + label {
+    --bg-opacity: 0;
+    box-shadow: none;
+  }

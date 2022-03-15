@@ -51,6 +51,9 @@ class RequestForm extends Resource
             Text::make(__('Email'), 'email')
                 ->rules('required', 'email', 'max:255'),
 
+            Text::make(__('Estimated price'), 'estimated_price')
+                ->rules('required', 'max:255'),
+
             Text::make(__('Description'), 'description')
                 ->rules('required', 'min:10'),
 

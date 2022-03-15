@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property mixed|string code
+ * @property string $name
+ * @property string $sub_name
  */
 class Service extends Model
 {
@@ -19,7 +21,7 @@ class Service extends Model
         'name', 'code', 'content'
     ];
 
-    public $append = [
+    public array $append = [
         'fullName'
     ];
 

@@ -3,61 +3,69 @@
 @section('title', __('Title'))
 
 @section('content')
-
     <main>
-
         <div class="container d-flex flex-column justify-content-between">
             <section id="teamHeader" class="d-flex flex-column">
                 <h1>
-                    You are about to <span style="color: red;margin-left: -5px;">L</span>AUNCH
+                    Nindo <span class="singleLeter">L</span>unch
                 </h1>
-                <h3 class="mt-1 mb-3">
-                    <!-- You better know what’s going on! -->
+                <h3>
                 </h3>
-                <p class="mt-2">
+                <p>
                     Get to know the pros you work with.
                 </p>
             </section>
-            <div class="container">
+
+            <div>
                 @include('messages.message')
                 @include('messages.errors')
             </div>
+
             <section id="LunchSection-1">
-
-
-
                 <div class="parentLunch d-flex justify-content-between flex-column ">
-                    <form action="{{ route('launch.store') }}" method="post">
+                    <form action="{{ route('launch.store') }}" method="post" class="d-flex justify-content-between flex-column" >
                         @csrf
-                        <div class="d-flex justify-content-between flex-column flex-lg-row">
-                            <fieldset class="d-flex  mr-5" style="position: relative;">
+                        <input type="hidden" name="honeypot" value="">
+                        <div class="d-flex flex-lg-row flex-column">
+                            <fieldset class="d-flex mr-5" style="position: relative;">
                                 <legend>
-                                    {{__('E-Mail')}}
+                                    E-Mail
                                 </legend>
-                                <input  type="email" name="email" value="{{ old('email') }}" id="">
+                                <input tabindex="1000000000" type="email" name="email">
                             </fieldset>
-                            <fieldset class="d-flex mt-5 mt-lg-0 justify-content-end" style="position: relative;">
-                                <legend id='userName'>
-                                    {{__('Your name (or company)')}}
+                            <fieldset class="d-flex " style="position: relative;">
+                                <legend id=''>
+                                    Your name (or company)
                                 </legend>
-                                <input  type="text" name="company" value="{{ old('company') }}" id="">
+                                <input onchange="upload()" type="text" name="company" id="">
                             </fieldset>
                         </div>
-                        <input name="honeypot" value="{{null}}" type="hidden">
-                        <div class="textAria d-flex justify-content-end">
+                        <div class="textAria d-flex">
                             <p>
-                                {{__('Your name (or company)')}}
+                                Explanation
                             </p>
-                            <textarea name="description">{{ old('description') }}</textarea>
+                            <textarea name="description" id="textAria"></textarea>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <button class="d-block py-2" type="submit">{{__('Submit')}}</button>
+                        <div class="LunchPrice w-100 d-flex flex-wrap justify-content-between align-items-center">
+                            <!-- https://dribbble.com/shots/10128438-Tailwind-Exploration-Status-Filter -->
+                            <label class="item justify-content-center d-flex align-items-center active"><input class="d-none" type="radio" name="estimated_price" value="5,000 - 15,000 $" checked><span>5,000 - 15,000 $</span></label>
+                            <label class="item justify-content-center d-flex align-items-center"><input class="d-none" type="radio" name="estimated_price" value="15,000 - 50,000 $"><span>15,000 - 50,000 $</span></label>
+                            <label class="item justify-content-center d-flex align-items-center"><input class="d-none" type="radio" name="estimated_price" value="50,000 - 150,000 $"><span>50,000 - 150,000 $</span></label>
+                            <label class="item justify-content-center d-flex align-items-center"><input class="d-none" type="radio" name="estimated_price" value="More than 150,000 $"><span>More than 150,000 $</span></label>
+                            <!-- <input class="item text-center d-flex align-items-center active" value='5,000 - 15,000 $' readonly> -->
+                            <!-- <input class="item text-center d-flex align-items-center" value='15,000 - 50,000 $' readonly> -->
+                            <!-- <input class="item text-center d-flex align-items-center" value='50,000 - 150,000 $' readonly> -->
+                            <!-- <input class="item text-center d-flex align-items-center" value='More than 150,000 $' readonly > -->
+                        </div>
+                        <div class="lunchSubmmitBtn d-flex justify-content-end">
+                            <button class="d-block" type="submit">Submit</button>
                         </div>
                     </form>
+
+
                 </div>
 
             </section>
         </div>
-
     </main>
 @endsection
